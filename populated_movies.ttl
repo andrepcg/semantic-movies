@@ -1,0 +1,2067 @@
+@prefix : <http://www.semanticmovies.pt/MovieOntology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.semanticmovies.pt/> a owl:Ontology .
+
+<http://www.semanticmovies.pt/#Animation> a <http://www.semanticmovies.pt/#Genre>,
+        owl:NamedIndividual .
+
+<http://www.semanticmovies.pt/#BAFTA> a <http://www.semanticmovies.pt/#Award>,
+        owl:NamedIndividual .
+
+<http://www.semanticmovies.pt/#Documentary> a <http://www.semanticmovies.pt/#Genre>,
+        owl:NamedIndividual .
+
+<http://www.semanticmovies.pt/#Film-Noir> a <http://www.semanticmovies.pt/#Genre>,
+        owl:NamedIndividual .
+
+<http://www.semanticmovies.pt/#GoldenGlobe> a <http://www.semanticmovies.pt/#Award>,
+        owl:NamedIndividual .
+
+<http://www.semanticmovies.pt/#Horror> a <http://www.semanticmovies.pt/#Genre>,
+        owl:NamedIndividual .
+
+<http://www.semanticmovies.pt/#Music> a <http://www.semanticmovies.pt/#Genre>,
+        owl:NamedIndividual .
+
+<http://www.semanticmovies.pt/#Musical> a <http://www.semanticmovies.pt/#Genre>,
+        owl:NamedIndividual .
+
+<http://www.semanticmovies.pt/#Oscar> a <http://www.semanticmovies.pt/#Award>,
+        owl:NamedIndividual .
+
+<http://www.semanticmovies.pt/#Producer> a <http://www.semanticmovies.pt/#Job>,
+        owl:NamedIndividual .
+
+<http://www.semanticmovies.pt/#Sport> a <http://www.semanticmovies.pt/#Genre>,
+        owl:NamedIndividual .
+
+<http://www.semanticmovies.pt/#hasBirthDate> a owl:DatatypeProperty ;
+    rdfs:domain <http://www.semanticmovies.pt/#Person> ;
+    rdfs:range xsd:dateTime ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<http://www.semanticmovies.pt/#hasFilmID> a owl:DatatypeProperty ;
+    rdfs:domain <http://www.semanticmovies.pt/#Film> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<http://www.semanticmovies.pt/#hasGender> a owl:DatatypeProperty ;
+    rdfs:domain <http://www.semanticmovies.pt/#Person> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<http://www.semanticmovies.pt/#hasName> a owl:DatatypeProperty ;
+    rdfs:domain <http://www.semanticmovies.pt/#Person> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<http://www.semanticmovies.pt/#hasPersonID> a owl:DatatypeProperty ;
+    rdfs:domain <http://www.semanticmovies.pt/#Person> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<http://www.semanticmovies.pt/#hasPlot> a owl:DatatypeProperty ;
+    rdfs:domain <http://www.semanticmovies.pt/#Film> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<http://www.semanticmovies.pt/#hasPoster> a owl:DatatypeProperty ;
+    rdfs:domain <http://www.semanticmovies.pt/#Film> ;
+    rdfs:range xsd:anyURI ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<http://www.semanticmovies.pt/#hasRating> a owl:DatatypeProperty ;
+    rdfs:domain <http://www.semanticmovies.pt/#Film> ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<http://www.semanticmovies.pt/#hasReleaseDate> a owl:DatatypeProperty ;
+    rdfs:domain <http://www.semanticmovies.pt/#Film> ;
+    rdfs:range xsd:dateTime ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<http://www.semanticmovies.pt/#hasRuntime> a owl:DatatypeProperty ;
+    rdfs:domain <http://www.semanticmovies.pt/#Film> ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<http://www.semanticmovies.pt/#hasTagline> a owl:DatatypeProperty ;
+    rdfs:domain <http://www.semanticmovies.pt/#Film> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<http://www.semanticmovies.pt/#hasTitle> a owl:DatatypeProperty ;
+    rdfs:domain <http://www.semanticmovies.pt/#Film> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<http://www.semanticmovies.pt/#hasVotes> a owl:DatatypeProperty ;
+    rdfs:domain <http://www.semanticmovies.pt/#Film> ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<http://www.semanticmovies.pt/#isActorOf> a owl:ObjectProperty ;
+    owl:inverseOf <http://www.semanticmovies.pt/#hasActor> .
+
+<http://www.semanticmovies.pt/#isAwardOf> a owl:ObjectProperty ;
+    owl:inverseOf <http://www.semanticmovies.pt/#hasAward> .
+
+<http://www.semanticmovies.pt/#isDirectorOf> a owl:ObjectProperty ;
+    owl:inverseOf <http://www.semanticmovies.pt/#hasDirector> .
+
+<http://www.semanticmovies.pt/#isGenreOf> a owl:ObjectProperty ;
+    owl:inverseOf <http://www.semanticmovies.pt/#hasGenre> .
+
+<http://www.semanticmovies.pt/#isJobOf> a owl:ObjectProperty ;
+    rdfs:subPropertyOf owl:topObjectProperty ;
+    owl:inverseOf <http://www.semanticmovies.pt/#hasJob> .
+
+<http://www.semanticmovies.pt/#isProducerOf> a owl:ObjectProperty ;
+    owl:inverseOf <http://www.semanticmovies.pt/#hasProducer> .
+
+<http://www.semanticmovies.pt/#isWriterOf> a owl:ObjectProperty ;
+    owl:inverseOf <http://www.semanticmovies.pt/#hasWriter> .
+
+<http://www.semanticmovies.pt/#Comedy> a <http://www.semanticmovies.pt/#Genre>,
+        owl:NamedIndividual ;
+    :isGenreOf <http://www.semanticmovies.pt/Film/tt0118799> .
+
+<http://www.semanticmovies.pt/#Family> a <http://www.semanticmovies.pt/#Genre>,
+        owl:NamedIndividual ;
+    :isGenreOf <http://www.semanticmovies.pt/Film/tt0038650> .
+
+<http://www.semanticmovies.pt/#History> a <http://www.semanticmovies.pt/#Genre>,
+        owl:NamedIndividual ;
+    :isGenreOf <http://www.semanticmovies.pt/Film/tt0108052> .
+
+<http://www.semanticmovies.pt/#War> a <http://www.semanticmovies.pt/#Genre>,
+        owl:NamedIndividual ;
+    :isGenreOf <http://www.semanticmovies.pt/Film/tt0120815> .
+
+<http://www.semanticmovies.pt/#hasActor> a owl:ObjectProperty ;
+    rdfs:domain <http://www.semanticmovies.pt/#Film> ;
+    rdfs:range <http://www.semanticmovies.pt/#Person> .
+
+<http://www.semanticmovies.pt/#hasAward> a owl:ObjectProperty ;
+    rdfs:domain <http://www.semanticmovies.pt/#Film>,
+        <http://www.semanticmovies.pt/#Person> ;
+    rdfs:range <http://www.semanticmovies.pt/#Award> .
+
+<http://www.semanticmovies.pt/#hasDirector> a owl:ObjectProperty ;
+    rdfs:domain <http://www.semanticmovies.pt/#Film> ;
+    rdfs:range <http://www.semanticmovies.pt/#Person> .
+
+<http://www.semanticmovies.pt/#hasGenre> a owl:ObjectProperty ;
+    rdfs:domain <http://www.semanticmovies.pt/#Film> ;
+    rdfs:range <http://www.semanticmovies.pt/#Genre> .
+
+<http://www.semanticmovies.pt/#hasJob> a owl:ObjectProperty ;
+    rdfs:domain <http://www.semanticmovies.pt/#Person> ;
+    rdfs:range <http://www.semanticmovies.pt/#Job> .
+
+<http://www.semanticmovies.pt/#hasProducer> a owl:ObjectProperty ;
+    rdfs:domain <http://www.semanticmovies.pt/#Film> ;
+    rdfs:range <http://www.semanticmovies.pt/#Person> .
+
+<http://www.semanticmovies.pt/#hasWriter> a owl:ObjectProperty ;
+    rdfs:domain <http://www.semanticmovies.pt/#Film> ;
+    rdfs:range <http://www.semanticmovies.pt/#Person> .
+
+<http://www.semanticmovies.pt/#Biography> a <http://www.semanticmovies.pt/#Genre>,
+        owl:NamedIndividual ;
+    :isGenreOf <http://www.semanticmovies.pt/Film/tt0099685>,
+        <http://www.semanticmovies.pt/Film/tt0108052> .
+
+<http://www.semanticmovies.pt/#Mystery> a <http://www.semanticmovies.pt/#Genre>,
+        owl:NamedIndividual ;
+    :isGenreOf <http://www.semanticmovies.pt/Film/tt0114369>,
+        <http://www.semanticmovies.pt/Film/tt1375666> .
+
+<http://www.semanticmovies.pt/#Romance> a <http://www.semanticmovies.pt/#Genre>,
+        owl:NamedIndividual ;
+    :isGenreOf <http://www.semanticmovies.pt/Film/tt0109830>,
+        <http://www.semanticmovies.pt/Film/tt0118799> .
+
+<http://www.semanticmovies.pt/#Western> a <http://www.semanticmovies.pt/#Genre>,
+        owl:NamedIndividual ;
+    :isGenreOf <http://www.semanticmovies.pt/Film/tt0060196>,
+        <http://www.semanticmovies.pt/Film/tt0064116> .
+
+<http://www.semanticmovies.pt/Person/nm0000008> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Marlon Brando" ;
+    :hasPersonID "nm0000008" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0068646> .
+
+<http://www.semanticmovies.pt/Person/nm0000027> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Alec Guinness" ;
+    :hasPersonID "nm0000027" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0076759> .
+
+<http://www.semanticmovies.pt/Person/nm0000071> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "James Stewart" ;
+    :hasPersonID "nm0000071" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0038650> .
+
+<http://www.semanticmovies.pt/Person/nm0000138> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Leonardo DiCaprio" ;
+    :hasPersonID "nm0000138" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt1375666> .
+
+<http://www.semanticmovies.pt/Person/nm0000142> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Clint Eastwood" ;
+    :hasPersonID "nm0000142" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0060196> .
+
+<http://www.semanticmovies.pt/Person/nm0000146> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Ralph Fiennes" ;
+    :hasPersonID "nm0000146" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0108052> .
+
+<http://www.semanticmovies.pt/Person/nm0000149> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Jodie Foster" ;
+    :hasPersonID "nm0000149" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0102926> .
+
+<http://www.semanticmovies.pt/Person/nm0000164> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Anthony Hopkins" ;
+    :hasPersonID "nm0000164" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0102926> .
+
+<http://www.semanticmovies.pt/Person/nm0000168> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Samuel L. Jackson" ;
+    :hasPersonID "nm0000168" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0110912> .
+
+<http://www.semanticmovies.pt/Person/nm0000175> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Stephen King" ;
+    :hasPersonID "nm0000175" ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0111161> .
+
+<http://www.semanticmovies.pt/Person/nm0000190> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Matthew McConaughey" ;
+    :hasPersonID "nm0000190" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0816692> .
+
+<http://www.semanticmovies.pt/Person/nm0000197> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Jack Nicholson" ;
+    :hasPersonID "nm0000197" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0073486> .
+
+<http://www.semanticmovies.pt/Person/nm0000198> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Gary Oldman" ;
+    :hasPersonID "nm0000198" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0110413> .
+
+<http://www.semanticmovies.pt/Person/nm0000204> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Natalie Portman" ;
+    :hasPersonID "nm0000204" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0110413> .
+
+<http://www.semanticmovies.pt/Person/nm0000206> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Keanu Reeves" ;
+    :hasPersonID "nm0000206" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0133093> .
+
+<http://www.semanticmovies.pt/Person/nm0000209> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Tim Robbins" ;
+    :hasPersonID "nm0000209" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0111161> .
+
+<http://www.semanticmovies.pt/Person/nm0000217> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Director> ;
+    :hasName "Martin Scorsese" ;
+    :hasPersonID "nm0000217" ;
+    :isDirectorOf <http://www.semanticmovies.pt/Film/tt0099685> .
+
+<http://www.semanticmovies.pt/Person/nm0000235> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Uma Thurman" ;
+    :hasPersonID "nm0000235" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0110912> .
+
+<http://www.semanticmovies.pt/Person/nm0000237> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "John Travolta" ;
+    :hasPersonID "nm0000237" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0110912> .
+
+<http://www.semanticmovies.pt/Person/nm0000246> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Bruce Willis" ;
+    :hasPersonID "nm0000246" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0110912> .
+
+<http://www.semanticmovies.pt/Person/nm0000286> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Stephen Baldwin" ;
+    :hasPersonID "nm0000286" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0114814> .
+
+<http://www.semanticmovies.pt/Person/nm0000288> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Christian Bale" ;
+    :hasPersonID "nm0000288" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0468569> .
+
+<http://www.semanticmovies.pt/Person/nm0000293> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Sean Bean" ;
+    :hasPersonID "nm0000293" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0120737> .
+
+<http://www.semanticmovies.pt/Person/nm0000307> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Helena Bonham Carter" ;
+    :hasPersonID "nm0000307" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0137523> .
+
+<http://www.semanticmovies.pt/Person/nm0000314> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Charles Bronson" ;
+    :hasPersonID "nm0000314" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0064116> .
+
+<http://www.semanticmovies.pt/Person/nm0000321> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Gabriel Byrne" ;
+    :hasPersonID "nm0000321" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0114814> .
+
+<http://www.semanticmovies.pt/Person/nm0000323> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Michael Caine" ;
+    :hasPersonID "nm0000323" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0468569> .
+
+<http://www.semanticmovies.pt/Person/nm0000354> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Matt Damon" ;
+    :hasPersonID "nm0000354" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0120815> .
+
+<http://www.semanticmovies.pt/Person/nm0000380> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Robert Duvall" ;
+    :hasPersonID "nm0000380" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0071562> .
+
+<http://www.semanticmovies.pt/Person/nm0000398> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Sally Field" ;
+    :hasPersonID "nm0000398" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0109830> .
+
+<http://www.semanticmovies.pt/Person/nm0000401> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Laurence Fishburne" ;
+    :hasPersonID "nm0000401" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0133093> .
+
+<http://www.semanticmovies.pt/Person/nm0000501> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Ray Liotta" ;
+    :hasPersonID "nm0000501" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0099685> .
+
+<http://www.semanticmovies.pt/Person/nm0000553> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Liam Neeson" ;
+    :hasPersonID "nm0000553" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0108052> .
+
+<http://www.semanticmovies.pt/Person/nm0000582> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Joe Pesci" ;
+    :hasPersonID "nm0000582" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0099685> .
+
+<http://www.semanticmovies.pt/Person/nm0000606> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Jean Reno" ;
+    :hasPersonID "nm0000606" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0110413> .
+
+<http://www.semanticmovies.pt/Person/nm0000641> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Gary Sinise" ;
+    :hasPersonID "nm0000641" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0109830> .
+
+<http://www.semanticmovies.pt/Person/nm0000705> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Robin Wright" ;
+    :hasPersonID "nm0000705" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0109830> .
+
+<http://www.semanticmovies.pt/Person/nm0000709> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Director> ;
+    :hasName "Robert Zemeckis" ;
+    :hasPersonID "nm0000709" ;
+    :isDirectorOf <http://www.semanticmovies.pt/Film/tt0109830> .
+
+<http://www.semanticmovies.pt/Person/nm0000732> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Danny Aiello" ;
+    :hasPersonID "nm0000732" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0110413> .
+
+<http://www.semanticmovies.pt/Person/nm0000812> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Roger Avary" ;
+    :hasPersonID "nm0000812" ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0110912> .
+
+<http://www.semanticmovies.pt/Person/nm0000842> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Martin Balsam" ;
+    :hasPersonID "nm0000842" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0050083> .
+
+<http://www.semanticmovies.pt/Person/nm0000859> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Lionel Barrymore" ;
+    :hasPersonID "nm0000859" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0038650> .
+
+<http://www.semanticmovies.pt/Person/nm0000966> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Lorraine Bracco" ;
+    :hasPersonID "nm0000966" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0099685> .
+
+<http://www.semanticmovies.pt/Person/nm0000971> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Nicoletta Braschi" ;
+    :hasPersonID "nm0000971" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0118799> .
+
+<http://www.semanticmovies.pt/Person/nm0001001> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "James Caan" ;
+    :hasPersonID "nm0001001" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0068646> .
+
+<http://www.semanticmovies.pt/Person/nm0001008> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Director> ;
+    :hasName "Frank Capra" ;
+    :hasPersonID "nm0001008" ;
+    :isDirectorOf <http://www.semanticmovies.pt/Film/tt0038650> .
+
+<http://www.semanticmovies.pt/Person/nm0001012> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Claudia Cardinale" ;
+    :hasPersonID "nm0001012" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0064116> .
+
+<http://www.semanticmovies.pt/Person/nm0001129> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Director> ;
+    :hasName "Jonathan Demme" ;
+    :hasPersonID "nm0001129" ;
+    :isDirectorOf <http://www.semanticmovies.pt/Film/tt0102926> .
+
+<http://www.semanticmovies.pt/Person/nm0001173> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Aaron Eckhart" ;
+    :hasPersonID "nm0001173" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0468569> .
+
+<http://www.semanticmovies.pt/Person/nm0001221> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Louise Fletcher" ;
+    :hasPersonID "nm0001221" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0073486> .
+
+<http://www.semanticmovies.pt/Person/nm0001232> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Director> ;
+    :hasName "Milos Forman" ;
+    :hasPersonID "nm0001232" ;
+    :isDirectorOf <http://www.semanticmovies.pt/Film/tt0073486> .
+
+<http://www.semanticmovies.pt/Person/nm0001410> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Lawrence Kasdan" ;
+    :hasPersonID "nm0001410" ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0080684> .
+
+<http://www.semanticmovies.pt/Person/nm0001426> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Ben Kingsley" ;
+    :hasPersonID "nm0001426" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0108052> .
+
+<http://www.semanticmovies.pt/Person/nm0001486> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Director> ;
+    :hasName "Sidney Lumet" ;
+    :hasPersonID "nm0001486" ;
+    :isDirectorOf <http://www.semanticmovies.pt/Film/tt0050083> .
+
+<http://www.semanticmovies.pt/Person/nm0001533> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Meat Loaf" ;
+    :hasPersonID "nm0001533" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0137523> .
+
+<http://www.semanticmovies.pt/Person/nm0001536> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Toshirô Mifune" ;
+    :hasPersonID "nm0001536" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0047478> .
+
+<http://www.semanticmovies.pt/Person/nm0001570> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Edward Norton" ;
+    :hasPersonID "nm0001570" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0137523> .
+
+<http://www.semanticmovies.pt/Person/nm0001590> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Chazz Palminteri" ;
+    :hasPersonID "nm0001590" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0114814> .
+
+<http://www.semanticmovies.pt/Person/nm0001656> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Donna Reed" ;
+    :hasPersonID "nm0001656" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0038650> .
+
+<http://www.semanticmovies.pt/Person/nm0001673> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Jason Robards" ;
+    :hasPersonID "nm0001673" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0064116> .
+
+<http://www.semanticmovies.pt/Person/nm0001741> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Director> ;
+    :hasName "Bryan Singer" ;
+    :hasPersonID "nm0001741" ;
+    :isDirectorOf <http://www.semanticmovies.pt/Film/tt0114814> .
+
+<http://www.semanticmovies.pt/Person/nm0001744> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Tom Sizemore" ;
+    :hasPersonID "nm0001744" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0120815> .
+
+<http://www.semanticmovies.pt/Person/nm0001812> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Lee Van Cleef" ;
+    :hasPersonID "nm0001812" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0060196> .
+
+<http://www.semanticmovies.pt/Person/nm0001850> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Billy Dee Williams" ;
+    :hasPersonID "nm0001850" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0080684> .
+
+<http://www.semanticmovies.pt/Person/nm0001873> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Steven Zaillian" ;
+    :hasPersonID "nm0001873" ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0108052> .
+
+<http://www.semanticmovies.pt/Person/nm0002011> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Lee J. Cobb" ;
+    :hasPersonID "nm0002011" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0050083> .
+
+<http://www.semanticmovies.pt/Person/nm0003160> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Christopher McQuarrie" ;
+    :hasPersonID "nm0003160" ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0114814> .
+
+<http://www.semanticmovies.pt/Person/nm0004266> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Anne Hathaway" ;
+    :hasPersonID "nm0004266" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0816692> .
+
+<http://www.semanticmovies.pt/Person/nm0005132> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Heath Ledger" ;
+    :hasPersonID "nm0005132" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0468569> .
+
+<http://www.semanticmovies.pt/Person/nm0005251> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Carrie-Anne Moss" ;
+    :hasPersonID "nm0005251" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0133093> .
+
+<http://www.semanticmovies.pt/Person/nm0006669> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "William Sadler" ;
+    :hasPersonID "nm0006669" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0111161> .
+
+<http://www.semanticmovies.pt/Person/nm0006872> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Sergio Donati" ;
+    :hasPersonID "nm0006872" ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0064116> .
+
+<http://www.semanticmovies.pt/Person/nm0077720> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Michael Berryman" ;
+    :hasPersonID "nm0077720" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0073486> .
+
+<http://www.semanticmovies.pt/Person/nm0095029> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Lawrence A. Bonney" ;
+    :hasPersonID "nm0095029" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0102926> .
+
+<http://www.semanticmovies.pt/Person/nm0102824> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Leigh Brackett" ;
+    :hasPersonID "nm0102824" ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0080684> .
+
+<http://www.semanticmovies.pt/Person/nm0110480> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Peter Brocco" ;
+    :hasPersonID "nm0110480" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0073486> .
+
+<http://www.semanticmovies.pt/Person/nm0122653> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Edward Burns" ;
+    :hasPersonID "nm0122653" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0120815> .
+
+<http://www.semanticmovies.pt/Person/nm0134493> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Giorgio Cantarini" ;
+    :hasPersonID "nm0134493" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0118799> .
+
+<http://www.semanticmovies.pt/Person/nm0148437> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Vincenzo Cerami" ;
+    :hasPersonID "nm0148437" ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0118799> .
+
+<http://www.semanticmovies.pt/Person/nm0243842> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Giustino Durano" ;
+    :hasPersonID "nm0243842" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0118799> .
+
+<http://www.semanticmovies.pt/Person/nm0275835> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "John Fiedler" ;
+    :hasPersonID "nm0275835" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0050083> .
+
+<http://www.semanticmovies.pt/Person/nm0321294> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Aldo Giuffrè" ;
+    :hasPersonID "nm0321294" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0060196> .
+
+<http://www.semanticmovies.pt/Person/nm0325743> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Bo Goldman" ;
+    :hasPersonID "nm0325743" ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0073486> .
+
+<http://www.semanticmovies.pt/Person/nm0328751> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Caroline Goodall" ;
+    :hasPersonID "nm0328751" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0108052> .
+
+<http://www.semanticmovies.pt/Person/nm0329304> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Frances Goodrich" ;
+    :hasPersonID "nm0329304" ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0038650> .
+
+<http://www.semanticmovies.pt/Person/nm0330687> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Joseph Gordon-Levitt" ;
+    :hasPersonID "nm0330687" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt1375666> .
+
+<http://www.semanticmovies.pt/Person/nm0343165> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Winston Groom" ;
+    :hasPersonID "nm0343165" ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0109830> .
+
+<http://www.semanticmovies.pt/Person/nm0348409> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Bob Gunton" ;
+    :hasPersonID "nm0348409" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0111161> .
+
+<http://www.semanticmovies.pt/Person/nm0352443> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Albert Hackett" ;
+    :hasPersonID "nm0352443" ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0038650> .
+
+<http://www.semanticmovies.pt/Person/nm0365383> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Thomas Harris" ;
+    :hasPersonID "nm0365383" ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0102926> .
+
+<http://www.semanticmovies.pt/Person/nm0368074> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Shinobu Hashimoto" ;
+    :hasPersonID "nm0368074" ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0047478> .
+
+<http://www.semanticmovies.pt/Person/nm0369142> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Lawrence Hauben" ;
+    :hasPersonID "nm0369142" ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0073486> .
+
+<http://www.semanticmovies.pt/Person/nm0447745> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Thomas Keneally" ;
+    :hasPersonID "nm0447745" ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0108052> .
+
+<http://www.semanticmovies.pt/Person/nm0449984> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Director> ;
+    :hasName "Irvin Kershner" ;
+    :hasPersonID "nm0449984" ;
+    :isDirectorOf <http://www.semanticmovies.pt/Film/tt0080684> .
+
+<http://www.semanticmovies.pt/Person/nm0501435> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Kasi Lemmons" ;
+    :hasPersonID "nm0501435" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0102926> .
+
+<http://www.semanticmovies.pt/Person/nm0513130> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Paulo Lins" ;
+    :hasPersonID "nm0513130" ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0317248> .
+
+<http://www.semanticmovies.pt/Person/nm0526199> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Director> ;
+    :hasName "Kátia Lund" ;
+    :hasPersonID "nm0526199" ;
+    :isDirectorOf <http://www.semanticmovies.pt/Film/tt0317248> .
+
+<http://www.semanticmovies.pt/Person/nm0576987> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Director> ;
+    :hasName "Fernando Meirelles" ;
+    :hasPersonID "nm0576987" ;
+    :isDirectorOf <http://www.semanticmovies.pt/Film/tt0317248> .
+
+<http://www.semanticmovies.pt/Person/nm0593775> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Thomas Mitchell" ;
+    :hasPersonID "nm0593775" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0038650> .
+
+<http://www.semanticmovies.pt/Person/nm0618690> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Matheus Nachtergaele" ;
+    :hasPersonID "nm0618690" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0317248> .
+
+<http://www.semanticmovies.pt/Person/nm0657333> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Chuck Palahniuk" ;
+    :hasPersonID "nm0657333" ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0137523> .
+
+<http://www.semanticmovies.pt/Person/nm0680983> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Ellen Page" ;
+    :hasPersonID "nm0680983" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt1375666> .
+
+<http://www.semanticmovies.pt/Person/nm0683380> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Nicholas Pileggi" ;
+    :hasPersonID "nm0683380" ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0099685> .
+
+<http://www.semanticmovies.pt/Person/nm0734441> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Robert Rodat" ;
+    :hasPersonID "nm0734441" ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0120815> .
+
+<http://www.semanticmovies.pt/Person/nm0741627> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Reginald Rose" ;
+    :hasPersonID "nm0741627" ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0050083> .
+
+<http://www.semanticmovies.pt/Person/nm0744839> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Eric Roth" ;
+    :hasPersonID "nm0744839" ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0109830> .
+
+<http://www.semanticmovies.pt/Person/nm0793616> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Yukiko Shimazaki" ;
+    :hasPersonID "nm0793616" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0047478> .
+
+<http://www.semanticmovies.pt/Person/nm0793766> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Takashi Shimura" ;
+    :hasPersonID "nm0793766" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0047478> .
+
+<http://www.semanticmovies.pt/Person/nm0848217> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Ted Tally" ;
+    :hasPersonID "nm0848217" ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0102926> .
+
+<http://www.semanticmovies.pt/Person/nm0875477> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Keiko Tsushima" ;
+    :hasPersonID "nm0875477" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0047478> .
+
+<http://www.semanticmovies.pt/Person/nm0880243> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Jim Uhls" ;
+    :hasPersonID "nm0880243" ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0137523> .
+
+<http://www.semanticmovies.pt/Person/nm0898812> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Luciano Vincenzoni" ;
+    :hasPersonID "nm0898812" ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0060196> .
+
+<http://www.semanticmovies.pt/Person/nm0908919> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Eli Wallach" ;
+    :hasPersonID "nm0908919" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0060196> .
+
+<http://www.semanticmovies.pt/Person/nm0913822> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Ken Watanabe" ;
+    :hasPersonID "nm0913822" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt1375666> .
+
+<http://www.semanticmovies.pt/Person/nm0915989> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Hugo Weaving" ;
+    :hasPersonID "nm0915989" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0133093> .
+
+<http://www.semanticmovies.pt/Person/nm1129884> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Leandro Firmino" ;
+    :hasPersonID "nm1129884" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0317248> .
+
+<http://www.semanticmovies.pt/Person/nm1130251> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Bráulio Mantovani" ;
+    :hasPersonID "nm1130251" ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0317248> .
+
+<http://www.semanticmovies.pt/Person/nm1179105> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Alexandre Rodrigues" ;
+    :hasPersonID "nm1179105" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0317248> .
+
+<http://www.semanticmovies.pt/Person/nm1249574> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Phellipe Haagensen" ;
+    :hasPersonID "nm1249574" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0317248> .
+
+<http://www.semanticmovies.pt/Person/nm1567113> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Jessica Chastain" ;
+    :hasPersonID "nm1567113" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0816692> .
+
+<http://www.semanticmovies.pt/Person/nm3237775> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Mackenzie Foy" ;
+    :hasPersonID "nm3237775" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0816692> .
+
+<http://www.semanticmovies.pt/Person/nm0000020> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Henry Fonda" ;
+    :hasPersonID "nm0000020" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0050083>,
+        <http://www.semanticmovies.pt/Film/tt0064116> .
+
+<http://www.semanticmovies.pt/Person/nm0000093> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Brad Pitt" ;
+    :hasPersonID "nm0000093" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0114369>,
+        <http://www.semanticmovies.pt/Film/tt0137523> .
+
+<http://www.semanticmovies.pt/Person/nm0000134> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Robert De Niro" ;
+    :hasPersonID "nm0000134" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0071562>,
+        <http://www.semanticmovies.pt/Film/tt0099685> .
+
+<http://www.semanticmovies.pt/Person/nm0000148> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Harrison Ford" ;
+    :hasPersonID "nm0000148" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0076759>,
+        <http://www.semanticmovies.pt/Film/tt0080684> .
+
+<http://www.semanticmovies.pt/Person/nm0000151> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Morgan Freeman" ;
+    :hasPersonID "nm0000151" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0111161>,
+        <http://www.semanticmovies.pt/Film/tt0114369> .
+
+<http://www.semanticmovies.pt/Person/nm0000158> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Tom Hanks" ;
+    :hasPersonID "nm0000158" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0109830>,
+        <http://www.semanticmovies.pt/Film/tt0120815> .
+
+<http://www.semanticmovies.pt/Person/nm0000199> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Al Pacino" ;
+    :hasPersonID "nm0000199" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0068646>,
+        <http://www.semanticmovies.pt/Film/tt0071562> .
+
+<http://www.semanticmovies.pt/Person/nm0000228> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Kevin Spacey" ;
+    :hasPersonID "nm0000228" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0114369>,
+        <http://www.semanticmovies.pt/Film/tt0114814> .
+
+<http://www.semanticmovies.pt/Person/nm0000229> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Director> ;
+    :hasName "Steven Spielberg" ;
+    :hasPersonID "nm0000229" ;
+    :isDirectorOf <http://www.semanticmovies.pt/Film/tt0108052>,
+        <http://www.semanticmovies.pt/Film/tt0120815> .
+
+<http://www.semanticmovies.pt/Person/nm0000399> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Director> ;
+    :hasName "David Fincher" ;
+    :hasPersonID "nm0000399" ;
+    :isDirectorOf <http://www.semanticmovies.pt/Film/tt0114369>,
+        <http://www.semanticmovies.pt/Film/tt0137523> .
+
+<http://www.semanticmovies.pt/Person/nm0000402> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Carrie Fisher" ;
+    :hasPersonID "nm0000402" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0076759>,
+        <http://www.semanticmovies.pt/Film/tt0080684> .
+
+<http://www.semanticmovies.pt/Person/nm0000434> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Mark Hamill" ;
+    :hasPersonID "nm0000434" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0076759>,
+        <http://www.semanticmovies.pt/Film/tt0080684> .
+
+<http://www.semanticmovies.pt/Person/nm0000473> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Diane Keaton" ;
+    :hasPersonID "nm0000473" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0068646>,
+        <http://www.semanticmovies.pt/Film/tt0071562> .
+
+<http://www.semanticmovies.pt/Person/nm0001557> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Viggo Mortensen" ;
+    :hasPersonID "nm0001557" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0167260>,
+        <http://www.semanticmovies.pt/Film/tt0167261> .
+
+<http://www.semanticmovies.pt/Person/nm0634300> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Jonathan Nolan" ;
+    :hasPersonID "nm0634300" ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0468569>,
+        <http://www.semanticmovies.pt/Film/tt0816692> .
+
+<http://www.semanticmovies.pt/Person/nm0701374> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Mario Puzo" ;
+    :hasPersonID "nm0701374" ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0068646>,
+        <http://www.semanticmovies.pt/Film/tt0071562> .
+
+<http://www.semanticmovies.pt/#Award> a owl:Class ;
+    rdfs:subClassOf owl:Thing .
+
+<http://www.semanticmovies.pt/Person/nm0000041> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Director>,
+        <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Akira Kurosawa" ;
+    :hasPersonID "nm0000041" ;
+    :isDirectorOf <http://www.semanticmovies.pt/Film/tt0047478> ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0047478> .
+
+<http://www.semanticmovies.pt/Person/nm0000108> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Director>,
+        <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Luc Besson" ;
+    :hasPersonID "nm0000108" ;
+    :isDirectorOf <http://www.semanticmovies.pt/Film/tt0110413> ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0110413> .
+
+<http://www.semanticmovies.pt/Person/nm0000184> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Director>,
+        <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "George Lucas" ;
+    :hasPersonID "nm0000184" ;
+    :isDirectorOf <http://www.semanticmovies.pt/Film/tt0076759> ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0076759> .
+
+<http://www.semanticmovies.pt/Person/nm0000233> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Director>,
+        <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Quentin Tarantino" ;
+    :hasPersonID "nm0000233" ;
+    :isDirectorOf <http://www.semanticmovies.pt/Film/tt0110912> ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0110912> .
+
+<http://www.semanticmovies.pt/Person/nm0000704> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Elijah Wood" ;
+    :hasPersonID "nm0000704" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0120737>,
+        <http://www.semanticmovies.pt/Film/tt0167260>,
+        <http://www.semanticmovies.pt/Film/tt0167261> .
+
+<http://www.semanticmovies.pt/Person/nm0001104> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Director>,
+        <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Frank Darabont" ;
+    :hasPersonID "nm0001104" ;
+    :isDirectorOf <http://www.semanticmovies.pt/Film/tt0111161> ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0111161> .
+
+<http://www.semanticmovies.pt/Person/nm0001392> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Director> ;
+    :hasName "Peter Jackson" ;
+    :hasPersonID "nm0001392" ;
+    :isDirectorOf <http://www.semanticmovies.pt/Film/tt0120737>,
+        <http://www.semanticmovies.pt/Film/tt0167260>,
+        <http://www.semanticmovies.pt/Film/tt0167261> .
+
+<http://www.semanticmovies.pt/Person/nm0001825> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor>,
+        <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Andrew Kevin Walker" ;
+    :hasPersonID "nm0001825" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0114369> ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0114369> .
+
+<http://www.semanticmovies.pt/Person/nm0005212> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Ian McKellen" ;
+    :hasPersonID "nm0005212" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0120737>,
+        <http://www.semanticmovies.pt/Film/tt0167260>,
+        <http://www.semanticmovies.pt/Film/tt0167261> .
+
+<http://www.semanticmovies.pt/Person/nm0089217> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor> ;
+    :hasName "Orlando Bloom" ;
+    :hasPersonID "nm0089217" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0120737>,
+        <http://www.semanticmovies.pt/Film/tt0167260>,
+        <http://www.semanticmovies.pt/Film/tt0167261> .
+
+<http://www.semanticmovies.pt/Person/nm0866058> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "J.R.R. Tolkien" ;
+    :hasPersonID "nm0866058" ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0120737>,
+        <http://www.semanticmovies.pt/Film/tt0167260>,
+        <http://www.semanticmovies.pt/Film/tt0167261> .
+
+<http://www.semanticmovies.pt/Person/nm0905152> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Director>,
+        <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Andy Wachowski" ;
+    :hasPersonID "nm0905152" ;
+    :isDirectorOf <http://www.semanticmovies.pt/Film/tt0133093> ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0133093> .
+
+<http://www.semanticmovies.pt/Person/nm0905154> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Director>,
+        <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Lana Wachowski" ;
+    :hasPersonID "nm0905154" ;
+    :isDirectorOf <http://www.semanticmovies.pt/Film/tt0133093> ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0133093> .
+
+<http://www.semanticmovies.pt/Person/nm0909638> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Fran Walsh" ;
+    :hasPersonID "nm0909638" ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0120737>,
+        <http://www.semanticmovies.pt/Film/tt0167260>,
+        <http://www.semanticmovies.pt/Film/tt0167261> .
+
+<http://www.semanticmovies.pt/#Job> a owl:Class ;
+    rdfs:subClassOf owl:Thing .
+
+<http://www.semanticmovies.pt/#Sci-Fi> a <http://www.semanticmovies.pt/#Genre>,
+        owl:NamedIndividual ;
+    :isGenreOf <http://www.semanticmovies.pt/Film/tt0076759>,
+        <http://www.semanticmovies.pt/Film/tt0080684>,
+        <http://www.semanticmovies.pt/Film/tt0133093>,
+        <http://www.semanticmovies.pt/Film/tt0816692>,
+        <http://www.semanticmovies.pt/Film/tt1375666> .
+
+<http://www.semanticmovies.pt/#Thriller> a <http://www.semanticmovies.pt/#Genre>,
+        owl:NamedIndividual ;
+    :isGenreOf <http://www.semanticmovies.pt/Film/tt0102926>,
+        <http://www.semanticmovies.pt/Film/tt0110413>,
+        <http://www.semanticmovies.pt/Film/tt0114369>,
+        <http://www.semanticmovies.pt/Film/tt0114814>,
+        <http://www.semanticmovies.pt/Film/tt1375666> .
+
+<http://www.semanticmovies.pt/#Action> a <http://www.semanticmovies.pt/#Genre>,
+        owl:NamedIndividual ;
+    :isGenreOf <http://www.semanticmovies.pt/Film/tt0076759>,
+        <http://www.semanticmovies.pt/Film/tt0080684>,
+        <http://www.semanticmovies.pt/Film/tt0120815>,
+        <http://www.semanticmovies.pt/Film/tt0133093>,
+        <http://www.semanticmovies.pt/Film/tt0468569>,
+        <http://www.semanticmovies.pt/Film/tt1375666> .
+
+<http://www.semanticmovies.pt/#Adventure> a <http://www.semanticmovies.pt/#Genre>,
+        owl:NamedIndividual ;
+    :isGenreOf <http://www.semanticmovies.pt/Film/tt0076759>,
+        <http://www.semanticmovies.pt/Film/tt0080684>,
+        <http://www.semanticmovies.pt/Film/tt0120737>,
+        <http://www.semanticmovies.pt/Film/tt0167260>,
+        <http://www.semanticmovies.pt/Film/tt0167261>,
+        <http://www.semanticmovies.pt/Film/tt0816692> .
+
+<http://www.semanticmovies.pt/#Fantasy> a <http://www.semanticmovies.pt/#Genre>,
+        owl:NamedIndividual ;
+    :isGenreOf <http://www.semanticmovies.pt/Film/tt0038650>,
+        <http://www.semanticmovies.pt/Film/tt0076759>,
+        <http://www.semanticmovies.pt/Film/tt0080684>,
+        <http://www.semanticmovies.pt/Film/tt0120737>,
+        <http://www.semanticmovies.pt/Film/tt0167260>,
+        <http://www.semanticmovies.pt/Film/tt0167261> .
+
+<http://www.semanticmovies.pt/Person/nm0000338> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Director>,
+        <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Francis Ford Coppola" ;
+    :hasPersonID "nm0000338" ;
+    :isDirectorOf <http://www.semanticmovies.pt/Film/tt0068646>,
+        <http://www.semanticmovies.pt/Film/tt0071562> ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0068646>,
+        <http://www.semanticmovies.pt/Film/tt0071562> .
+
+<http://www.semanticmovies.pt/Person/nm0000905> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Actor>,
+        <http://www.semanticmovies.pt/#Director>,
+        <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Roberto Benigni" ;
+    :hasPersonID "nm0000905" ;
+    :isActorOf <http://www.semanticmovies.pt/Film/tt0118799> ;
+    :isDirectorOf <http://www.semanticmovies.pt/Film/tt0118799> ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0118799> .
+
+<http://www.semanticmovies.pt/Person/nm0001466> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Director>,
+        <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Sergio Leone" ;
+    :hasPersonID "nm0001466" ;
+    :isDirectorOf <http://www.semanticmovies.pt/Film/tt0060196>,
+        <http://www.semanticmovies.pt/Film/tt0064116> ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0060196>,
+        <http://www.semanticmovies.pt/Film/tt0064116> .
+
+<http://www.semanticmovies.pt/Film/tt0047478> a :Film ;
+    :hasActor <http://www.semanticmovies.pt/Person/nm0001536>,
+        <http://www.semanticmovies.pt/Person/nm0793616>,
+        <http://www.semanticmovies.pt/Person/nm0793766>,
+        <http://www.semanticmovies.pt/Person/nm0875477> ;
+    :hasDirector <http://www.semanticmovies.pt/Person/nm0000041> ;
+    :hasFilmID "tt0047478" ;
+    :hasGenre <http://www.semanticmovies.pt/#Drama> ;
+    :hasPlot "A poor village under attack by bandits recruits seven unemployed samurai to help them defend themselves." ;
+    :hasPoster "http://ia.media-imdb.com/images/M/MV5BMTc5MDY1MjU5MF5BMl5BanBnXkFtZTgwNDM2OTE4MzE@._V1_.jpg" ;
+    :hasRating 8.7e+00 ;
+    :hasReleaseDate "1956-11-19" ;
+    :hasRuntime 9480 ;
+    :hasTagline "Will Take Its Place With the Seven Greatest Films of All Time!" ;
+    :hasTitle "Seven Samurai" ;
+    :hasVotes 213336 ;
+    :hasWriter <http://www.semanticmovies.pt/Person/nm0000041>,
+        <http://www.semanticmovies.pt/Person/nm0368074> .
+
+<http://www.semanticmovies.pt/Film/tt0050083> a :Film ;
+    :hasActor <http://www.semanticmovies.pt/Person/nm0000020>,
+        <http://www.semanticmovies.pt/Person/nm0000842>,
+        <http://www.semanticmovies.pt/Person/nm0002011>,
+        <http://www.semanticmovies.pt/Person/nm0275835> ;
+    :hasDirector <http://www.semanticmovies.pt/Person/nm0001486> ;
+    :hasFilmID "tt0050083" ;
+    :hasGenre <http://www.semanticmovies.pt/#Crime>,
+        <http://www.semanticmovies.pt/#Drama> ;
+    :hasPlot "A dissenting juror in a murder trial slowly manages to convince the others that the case is not as obviously clear as it seemed in court." ;
+    :hasPoster "http://ia.media-imdb.com/images/M/MV5BODQwOTc5MDM2N15BMl5BanBnXkFtZTcwODQxNTEzNA@@._V1_.jpg" ;
+    :hasRating 8.9e+00 ;
+    :hasReleaseDate "1957-04" ;
+    :hasRuntime 5760 ;
+    :hasTagline "Life Is In Their Hands -- Death Is On Their Minds!" ;
+    :hasTitle "12 Angry Men" ;
+    :hasVotes 405339 ;
+    :hasWriter <http://www.semanticmovies.pt/Person/nm0741627> .
+
+<http://www.semanticmovies.pt/Film/tt0060196> a :Film ;
+    :hasActor <http://www.semanticmovies.pt/Person/nm0000142>,
+        <http://www.semanticmovies.pt/Person/nm0001812>,
+        <http://www.semanticmovies.pt/Person/nm0321294>,
+        <http://www.semanticmovies.pt/Person/nm0908919> ;
+    :hasDirector <http://www.semanticmovies.pt/Person/nm0001466> ;
+    :hasFilmID "tt0060196" ;
+    :hasGenre <http://www.semanticmovies.pt/#Western> ;
+    :hasPlot "A bounty hunting scam joins two men in an uneasy alliance against a third in a race to find a fortune in gold buried in a remote cemetery." ;
+    :hasPoster "http://ia.media-imdb.com/images/M/MV5BOTQ5NDI3MTI4MF5BMl5BanBnXkFtZTgwNDQ4ODE5MDE@._V1_.jpg" ;
+    :hasRating 8.9e+00 ;
+    :hasReleaseDate "1966-12-23" ;
+    :hasRuntime 9660 ;
+    :hasTagline "They formed an alliance of hate to steal a fortune in dead man's gold." ;
+    :hasTitle "The Good, the Bad and the Ugly" ;
+    :hasVotes 465896 ;
+    :hasWriter <http://www.semanticmovies.pt/Person/nm0001466>,
+        <http://www.semanticmovies.pt/Person/nm0898812> .
+
+<http://www.semanticmovies.pt/Film/tt0064116> a :Film ;
+    :hasActor <http://www.semanticmovies.pt/Person/nm0000020>,
+        <http://www.semanticmovies.pt/Person/nm0000314>,
+        <http://www.semanticmovies.pt/Person/nm0001012>,
+        <http://www.semanticmovies.pt/Person/nm0001673> ;
+    :hasDirector <http://www.semanticmovies.pt/Person/nm0001466> ;
+    :hasFilmID "tt0064116" ;
+    :hasGenre <http://www.semanticmovies.pt/#Western> ;
+    :hasPlot "Epic story of a mysterious stranger with a harmonica who joins forces with a notorious desperado to protect a beautiful widow from a ruthless assassin working for the railroad." ;
+    :hasPoster "http://ia.media-imdb.com/images/M/MV5BMTEyODQzNDkzNjVeQTJeQWpwZ15BbWU4MDgyODk1NDEx._V1_.jpg" ;
+    :hasRating 8.6e+00 ;
+    :hasReleaseDate "1968-12-21" ;
+    :hasRuntime 8700 ;
+    :hasTagline "There were three men in her life. One to take her... one to love her... and one to kill her." ;
+    :hasTitle "Once Upon a Time in the West" ;
+    :hasVotes 199755 ;
+    :hasWriter <http://www.semanticmovies.pt/Person/nm0001466>,
+        <http://www.semanticmovies.pt/Person/nm0006872> .
+
+<http://www.semanticmovies.pt/Film/tt0073486> a :Film ;
+    :hasActor <http://www.semanticmovies.pt/Person/nm0000197>,
+        <http://www.semanticmovies.pt/Person/nm0001221>,
+        <http://www.semanticmovies.pt/Person/nm0077720>,
+        <http://www.semanticmovies.pt/Person/nm0110480> ;
+    :hasDirector <http://www.semanticmovies.pt/Person/nm0001232> ;
+    :hasFilmID "tt0073486" ;
+    :hasGenre <http://www.semanticmovies.pt/#Drama> ;
+    :hasPlot "Upon admittance to a mental institution, a brash rebel rallies the patients to take on the oppressive head nurse." ;
+    :hasPoster "http://ia.media-imdb.com/images/M/MV5BMTk5OTA4NTc0NF5BMl5BanBnXkFtZTcwNzI5Mzg3OA@@._V1_.jpg" ;
+    :hasRating 8.7e+00 ;
+    :hasReleaseDate "1975-11-21" ;
+    :hasRuntime 7980 ;
+    :hasTagline "If he's crazy, what does that make you?" ;
+    :hasTitle "One Flew Over the Cuckoo's Nest" ;
+    :hasVotes 630299 ;
+    :hasWriter <http://www.semanticmovies.pt/Person/nm0325743>,
+        <http://www.semanticmovies.pt/Person/nm0369142> .
+
+<http://www.semanticmovies.pt/Film/tt0137523> a :Film ;
+    :hasActor <http://www.semanticmovies.pt/Person/nm0000093>,
+        <http://www.semanticmovies.pt/Person/nm0000307>,
+        <http://www.semanticmovies.pt/Person/nm0001533>,
+        <http://www.semanticmovies.pt/Person/nm0001570> ;
+    :hasDirector <http://www.semanticmovies.pt/Person/nm0000399> ;
+    :hasFilmID "tt0137523" ;
+    :hasGenre <http://www.semanticmovies.pt/#Drama> ;
+    :hasPlot "An insomniac office worker, looking for a way to change his life, crosses paths with a devil-may-care soap maker, forming an underground fight club that evolves into something much, much more..." ;
+    :hasPoster "http://ia.media-imdb.com/images/M/MV5BMjIwNTYzMzE1M15BMl5BanBnXkFtZTcwOTE5Mzg3OA@@._V1_.jpg" ;
+    :hasRating 8.9e+00 ;
+    :hasReleaseDate "1999-10-15" ;
+    :hasRuntime 8340 ;
+    :hasTagline "How much can you know about yourself if you've never been in a fight?" ;
+    :hasTitle "Fight Club" ;
+    :hasVotes 1232935 ;
+    :hasWriter <http://www.semanticmovies.pt/Person/nm0657333>,
+        <http://www.semanticmovies.pt/Person/nm0880243> .
+
+<http://www.semanticmovies.pt/Person/nm0634240> a :Person ;
+    :hasJob <http://www.semanticmovies.pt/#Director>,
+        <http://www.semanticmovies.pt/#Writer> ;
+    :hasName "Christopher Nolan" ;
+    :hasPersonID "nm0634240" ;
+    :isDirectorOf <http://www.semanticmovies.pt/Film/tt0468569>,
+        <http://www.semanticmovies.pt/Film/tt0816692>,
+        <http://www.semanticmovies.pt/Film/tt1375666> ;
+    :isWriterOf <http://www.semanticmovies.pt/Film/tt0468569>,
+        <http://www.semanticmovies.pt/Film/tt0816692>,
+        <http://www.semanticmovies.pt/Film/tt1375666> .
+
+<http://www.semanticmovies.pt/Film/tt0068646> a :Film ;
+    :hasActor <http://www.semanticmovies.pt/Person/nm0000008>,
+        <http://www.semanticmovies.pt/Person/nm0000199>,
+        <http://www.semanticmovies.pt/Person/nm0000473>,
+        <http://www.semanticmovies.pt/Person/nm0001001> ;
+    :hasDirector <http://www.semanticmovies.pt/Person/nm0000338> ;
+    :hasFilmID "tt0068646" ;
+    :hasGenre <http://www.semanticmovies.pt/#Crime>,
+        <http://www.semanticmovies.pt/#Drama> ;
+    :hasPlot "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son." ;
+    :hasPoster "http://ia.media-imdb.com/images/M/MV5BMjEyMjcyNDI4MF5BMl5BanBnXkFtZTcwMDA5Mzg3OA@@._V1_.jpg" ;
+    :hasRating 9.2e+00 ;
+    :hasReleaseDate "1972-03-24" ;
+    :hasRuntime 10500 ;
+    :hasTagline "An offer you can't refuse." ;
+    :hasTitle "The Godfather" ;
+    :hasVotes 1068082 ;
+    :hasWriter <http://www.semanticmovies.pt/Person/nm0000338>,
+        <http://www.semanticmovies.pt/Person/nm0701374> .
+
+<http://www.semanticmovies.pt/Film/tt0071562> a :Film ;
+    :hasActor <http://www.semanticmovies.pt/Person/nm0000134>,
+        <http://www.semanticmovies.pt/Person/nm0000199>,
+        <http://www.semanticmovies.pt/Person/nm0000380>,
+        <http://www.semanticmovies.pt/Person/nm0000473> ;
+    :hasDirector <http://www.semanticmovies.pt/Person/nm0000338> ;
+    :hasFilmID "tt0071562" ;
+    :hasGenre <http://www.semanticmovies.pt/#Crime>,
+        <http://www.semanticmovies.pt/#Drama> ;
+    :hasPlot "The early life and career of Vito Corleone in 1920s New York is portrayed while his son, Michael, expands and tightens his grip on his crime syndicate stretching from Lake Tahoe, Nevada to pre-revolution 1958 Cuba." ;
+    :hasPoster "http://ia.media-imdb.com/images/M/MV5BNDc2NTM3MzU1Nl5BMl5BanBnXkFtZTcwMTA5Mzg3OA@@._V1_.jpg" ;
+    :hasRating 9 ;
+    :hasReleaseDate "1974-12-20" ;
+    :hasRuntime 12120 ;
+    :hasTagline "None" ;
+    :hasTitle "The Godfather: Part II" ;
+    :hasVotes 723949 ;
+    :hasWriter <http://www.semanticmovies.pt/Person/nm0000338>,
+        <http://www.semanticmovies.pt/Person/nm0701374> .
+
+<http://www.semanticmovies.pt/Film/tt0099685> a :Film ;
+    :hasActor <http://www.semanticmovies.pt/Person/nm0000134>,
+        <http://www.semanticmovies.pt/Person/nm0000501>,
+        <http://www.semanticmovies.pt/Person/nm0000582>,
+        <http://www.semanticmovies.pt/Person/nm0000966> ;
+    :hasDirector <http://www.semanticmovies.pt/Person/nm0000217> ;
+    :hasFilmID "tt0099685" ;
+    :hasGenre <http://www.semanticmovies.pt/#Biography>,
+        <http://www.semanticmovies.pt/#Crime>,
+        <http://www.semanticmovies.pt/#Drama> ;
+    :hasPlot "Henry Hill and his friends work their way up through the mob hierarchy." ;
+    :hasPoster "http://ia.media-imdb.com/images/M/MV5BMTY2OTE5MzQ3MV5BMl5BanBnXkFtZTgwMTY2NTYxMTE@._V1_.jpg" ;
+    :hasRating 8.7e+00 ;
+    :hasReleaseDate "1990-09-21" ;
+    :hasRuntime 8760 ;
+    :hasTagline "\"As far back as I can remember, I've always wanted to be a gangster.\" -- Henry Hill, Brooklyn, N.Y. 1955." ;
+    :hasTitle "Goodfellas" ;
+    :hasVotes 671782 ;
+    :hasWriter <http://www.semanticmovies.pt/Person/nm0683380> .
+
+<http://www.semanticmovies.pt/Film/tt0109830> a :Film ;
+    :hasActor <http://www.semanticmovies.pt/Person/nm0000158>,
+        <http://www.semanticmovies.pt/Person/nm0000398>,
+        <http://www.semanticmovies.pt/Person/nm0000641>,
+        <http://www.semanticmovies.pt/Person/nm0000705> ;
+    :hasDirector <http://www.semanticmovies.pt/Person/nm0000709> ;
+    :hasFilmID "tt0109830" ;
+    :hasGenre <http://www.semanticmovies.pt/#Drama>,
+        <http://www.semanticmovies.pt/#Romance> ;
+    :hasPlot "Forrest Gump, while not intelligent, has accidentally been present at many historic moments, but his true love, Jenny Curran, eludes him." ;
+    :hasPoster "http://ia.media-imdb.com/images/M/MV5BMTQwMTA5MzI1MF5BMl5BanBnXkFtZTcwMzY5Mzg3OA@@._V1_.jpg" ;
+    :hasRating 8.8e+00 ;
+    :hasReleaseDate "1994-07-06" ;
+    :hasRuntime 8520 ;
+    :hasTagline "The story of a lifetime." ;
+    :hasTitle "Forrest Gump" ;
+    :hasVotes 1133280 ;
+    :hasWriter <http://www.semanticmovies.pt/Person/nm0343165>,
+        <http://www.semanticmovies.pt/Person/nm0744839> .
+
+<http://www.semanticmovies.pt/Film/tt0110413> a :Film ;
+    :hasActor <http://www.semanticmovies.pt/Person/nm0000198>,
+        <http://www.semanticmovies.pt/Person/nm0000204>,
+        <http://www.semanticmovies.pt/Person/nm0000606>,
+        <http://www.semanticmovies.pt/Person/nm0000732> ;
+    :hasDirector <http://www.semanticmovies.pt/Person/nm0000108> ;
+    :hasFilmID "tt0110413" ;
+    :hasGenre <http://www.semanticmovies.pt/#Crime>,
+        <http://www.semanticmovies.pt/#Drama>,
+        <http://www.semanticmovies.pt/#Thriller> ;
+    :hasPlot "Mathilda, a 12-year-old girl, is reluctantly taken in by Léon, a professional assassin, after her family is murdered. Léon and Mathilda form an unusual relationship, as she becomes his protégée and learns the assassin's trade." ;
+    :hasPoster "http://ia.media-imdb.com/images/M/MV5BMTgzMzg4MDkwNF5BMl5BanBnXkFtZTcwODAwNDg3OA@@._V1_.jpg" ;
+    :hasRating 8.6e+00 ;
+    :hasReleaseDate "1994-11-18" ;
+    :hasRuntime 6600 ;
+    :hasTagline "If you want the job done right, hire a professional." ;
+    :hasTitle "Léon: The Professional" ;
+    :hasVotes 664393 ;
+    :hasWriter <http://www.semanticmovies.pt/Person/nm0000108> .
+
+<http://www.semanticmovies.pt/Film/tt0110912> a :Film ;
+    :hasActor <http://www.semanticmovies.pt/Person/nm0000168>,
+        <http://www.semanticmovies.pt/Person/nm0000235>,
+        <http://www.semanticmovies.pt/Person/nm0000237>,
+        <http://www.semanticmovies.pt/Person/nm0000246> ;
+    :hasDirector <http://www.semanticmovies.pt/Person/nm0000233> ;
+    :hasFilmID "tt0110912" ;
+    :hasGenre <http://www.semanticmovies.pt/#Crime>,
+        <http://www.semanticmovies.pt/#Drama> ;
+    :hasPlot "The lives of two mob hit men, a boxer, a gangster's wife, and a pair of diner bandits intertwine in four tales of violence and redemption." ;
+    :hasPoster "http://ia.media-imdb.com/images/M/MV5BMTkxMTA5OTAzMl5BMl5BanBnXkFtZTgwNjA5MDc3NjE@._V1_.jpg" ;
+    :hasRating 8.9e+00 ;
+    :hasReleaseDate "1994-10-14" ;
+    :hasRuntime 9240 ;
+    :hasTagline "Girls like me don't make invitations like this to just anyone!" ;
+    :hasTitle "Pulp Fiction" ;
+    :hasVotes 1216582 ;
+    :hasWriter <http://www.semanticmovies.pt/Person/nm0000233>,
+        <http://www.semanticmovies.pt/Person/nm0000812> .
+
+<http://www.semanticmovies.pt/Film/tt0111161> a :Film ;
+    :hasActor <http://www.semanticmovies.pt/Person/nm0000151>,
+        <http://www.semanticmovies.pt/Person/nm0000209>,
+        <http://www.semanticmovies.pt/Person/nm0006669>,
+        <http://www.semanticmovies.pt/Person/nm0348409> ;
+    :hasDirector <http://www.semanticmovies.pt/Person/nm0001104> ;
+    :hasFilmID "tt0111161" ;
+    :hasGenre <http://www.semanticmovies.pt/#Crime>,
+        <http://www.semanticmovies.pt/#Drama> ;
+    :hasPlot "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency." ;
+    :hasPoster "http://ia.media-imdb.com/images/M/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_.jpg" ;
+    :hasRating 9.3e+00 ;
+    :hasReleaseDate "1994-10-14" ;
+    :hasRuntime 8520 ;
+    :hasTagline "Fear can hold you prisoner. Hope can set you free." ;
+    :hasTitle "The Shawshank Redemption" ;
+    :hasVotes 1560185 ;
+    :hasWriter <http://www.semanticmovies.pt/Person/nm0000175>,
+        <http://www.semanticmovies.pt/Person/nm0001104> .
+
+<http://www.semanticmovies.pt/Film/tt0114814> a :Film ;
+    :hasActor <http://www.semanticmovies.pt/Person/nm0000228>,
+        <http://www.semanticmovies.pt/Person/nm0000286>,
+        <http://www.semanticmovies.pt/Person/nm0000321>,
+        <http://www.semanticmovies.pt/Person/nm0001590> ;
+    :hasDirector <http://www.semanticmovies.pt/Person/nm0001741> ;
+    :hasFilmID "tt0114814" ;
+    :hasGenre <http://www.semanticmovies.pt/#Crime>,
+        <http://www.semanticmovies.pt/#Drama>,
+        <http://www.semanticmovies.pt/#Thriller> ;
+    :hasPlot "A sole survivor tells of the twisty events leading up to a horrific gun battle on a boat, which begin when five criminals meet at a seemingly random police lineup." ;
+    :hasPoster "http://ia.media-imdb.com/images/M/MV5BMzI1MjI5MDQyOV5BMl5BanBnXkFtZTcwNzE4Mjg3NA@@._V1_.jpg" ;
+    :hasRating 8.6e+00 ;
+    :hasReleaseDate "1995-09-15" ;
+    :hasRuntime 6360 ;
+    :hasTagline "The greatest trick the devil ever pulled was to convince the world he didn't exist" ;
+    :hasTitle "The Usual Suspects" ;
+    :hasVotes 683710 ;
+    :hasWriter <http://www.semanticmovies.pt/Person/nm0003160> .
+
+<http://www.semanticmovies.pt/Film/tt0120737> a :Film ;
+    :hasActor <http://www.semanticmovies.pt/Person/nm0000293>,
+        <http://www.semanticmovies.pt/Person/nm0000704>,
+        <http://www.semanticmovies.pt/Person/nm0005212>,
+        <http://www.semanticmovies.pt/Person/nm0089217> ;
+    :hasDirector <http://www.semanticmovies.pt/Person/nm0001392> ;
+    :hasFilmID "tt0120737" ;
+    :hasGenre <http://www.semanticmovies.pt/#Adventure>,
+        <http://www.semanticmovies.pt/#Fantasy> ;
+    :hasPlot "A meek Hobbit and eight companions set out on a journey to destroy the One Ring and the Dark Lord Sauron." ;
+    :hasPoster "http://ia.media-imdb.com/images/M/MV5BNTEyMjAwMDU1OV5BMl5BanBnXkFtZTcwNDQyNTkxMw@@._V1_.jpg" ;
+    :hasRating 8.8e+00 ;
+    :hasReleaseDate "2001-12-19" ;
+    :hasRuntime 10680 ;
+    :hasTagline "The Legend Comes to Life" ;
+    :hasTitle "The Lord of the Rings: The Fellowship of the Ring" ;
+    :hasVotes 1143865 ;
+    :hasWriter <http://www.semanticmovies.pt/Person/nm0866058>,
+        <http://www.semanticmovies.pt/Person/nm0909638> .
+
+<http://www.semanticmovies.pt/Film/tt0120815> a :Film ;
+    :hasActor <http://www.semanticmovies.pt/Person/nm0000158>,
+        <http://www.semanticmovies.pt/Person/nm0000354>,
+        <http://www.semanticmovies.pt/Person/nm0001744>,
+        <http://www.semanticmovies.pt/Person/nm0122653> ;
+    :hasDirector <http://www.semanticmovies.pt/Person/nm0000229> ;
+    :hasFilmID "tt0120815" ;
+    :hasGenre <http://www.semanticmovies.pt/#Action>,
+        <http://www.semanticmovies.pt/#Drama>,
+        <http://www.semanticmovies.pt/#War> ;
+    :hasPlot "Following the Normandy Landings, a group of U.S. soldiers go behind enemy lines to retrieve a paratrooper whose brothers have been killed in action." ;
+    :hasPoster "http://ia.media-imdb.com/images/M/MV5BNjczODkxNTAxN15BMl5BanBnXkFtZTcwMTcwNjUxMw@@._V1_.jpg" ;
+    :hasRating 8.6e+00 ;
+    :hasReleaseDate "1998-07-24" ;
+    :hasRuntime 10140 ;
+    :hasTagline "In the Last Great Invasion of the Last Great War, The Greatest Danger for Eight Men was Saving... One." ;
+    :hasTitle "Saving Private Ryan" ;
+    :hasVotes 805786 ;
+    :hasWriter <http://www.semanticmovies.pt/Person/nm0734441> .
+
+<http://www.semanticmovies.pt/Film/tt0167260> a :Film ;
+    :hasActor <http://www.semanticmovies.pt/Person/nm0000704>,
+        <http://www.semanticmovies.pt/Person/nm0001557>,
+        <http://www.semanticmovies.pt/Person/nm0005212>,
+        <http://www.semanticmovies.pt/Person/nm0089217> ;
+    :hasDirector <http://www.semanticmovies.pt/Person/nm0001392> ;
+    :hasFilmID "tt0167260" ;
+    :hasGenre <http://www.semanticmovies.pt/#Adventure>,
+        <http://www.semanticmovies.pt/#Fantasy> ;
+    :hasPlot "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring." ;
+    :hasPoster "http://ia.media-imdb.com/images/M/MV5BMjE4MjA1NTAyMV5BMl5BanBnXkFtZTcwNzM1NDQyMQ@@._V1_.jpg" ;
+    :hasRating 8.9e+00 ;
+    :hasReleaseDate "2003-12-17" ;
+    :hasRuntime 12060 ;
+    :hasTagline "The eye of the enemy is moving." ;
+    :hasTitle "The Lord of the Rings: The Return of the King" ;
+    :hasVotes 1119215 ;
+    :hasWriter <http://www.semanticmovies.pt/Person/nm0866058>,
+        <http://www.semanticmovies.pt/Person/nm0909638> .
+
+<http://www.semanticmovies.pt/Film/tt0167261> a :Film ;
+    :hasActor <http://www.semanticmovies.pt/Person/nm0000704>,
+        <http://www.semanticmovies.pt/Person/nm0001557>,
+        <http://www.semanticmovies.pt/Person/nm0005212>,
+        <http://www.semanticmovies.pt/Person/nm0089217> ;
+    :hasDirector <http://www.semanticmovies.pt/Person/nm0001392> ;
+    :hasFilmID "tt0167261" ;
+    :hasGenre <http://www.semanticmovies.pt/#Adventure>,
+        <http://www.semanticmovies.pt/#Fantasy> ;
+    :hasPlot "While Frodo and Sam edge closer to Mordor with the help of the shifty Gollum, the divided fellowship makes a stand against Sauron's new ally, Saruman, and his hordes of Isengard." ;
+    :hasPoster "http://ia.media-imdb.com/images/M/MV5BMTAyNDU0NjY4NTheQTJeQWpwZ15BbWU2MDk4MTY2Nw@@._V1_.jpg" ;
+    :hasRating 8.7e+00 ;
+    :hasReleaseDate "2002-12-18" ;
+    :hasRuntime 10740 ;
+    :hasTagline "A New Power Is Rising." ;
+    :hasTitle "The Lord of the Rings: The Two Towers" ;
+    :hasVotes 1009705 ;
+    :hasWriter <http://www.semanticmovies.pt/Person/nm0866058>,
+        <http://www.semanticmovies.pt/Person/nm0909638> .
+
+<http://www.semanticmovies.pt/#Person> a owl:Class ;
+    rdfs:subClassOf owl:Thing .
+
+<http://www.semanticmovies.pt/Film/tt0038650> a :Film ;
+    :hasActor <http://www.semanticmovies.pt/Person/nm0000071>,
+        <http://www.semanticmovies.pt/Person/nm0000859>,
+        <http://www.semanticmovies.pt/Person/nm0001656>,
+        <http://www.semanticmovies.pt/Person/nm0593775> ;
+    :hasDirector <http://www.semanticmovies.pt/Person/nm0001008> ;
+    :hasFilmID "tt0038650" ;
+    :hasGenre <http://www.semanticmovies.pt/#Drama>,
+        <http://www.semanticmovies.pt/#Family>,
+        <http://www.semanticmovies.pt/#Fantasy> ;
+    :hasPlot "An angel helps a compassionate but despairingly frustrated businessman by showing what life would have been like if he never existed." ;
+    :hasPoster "http://ia.media-imdb.com/images/M/MV5BMTMzMzY5NDc4M15BMl5BanBnXkFtZTcwMzc4NjIxNw@@._V1_.jpg" ;
+    :hasRating 8.6e+00 ;
+    :hasReleaseDate "1947-01-07" ;
+    :hasRuntime 7800 ;
+    :hasTagline "Frank Capra's...\"It's a Wonderful Life\"." ;
+    :hasTitle "It's a Wonderful Life" ;
+    :hasVotes 251452 ;
+    :hasWriter <http://www.semanticmovies.pt/Person/nm0329304>,
+        <http://www.semanticmovies.pt/Person/nm0352443> .
+
+<http://www.semanticmovies.pt/Film/tt0076759> a :Film ;
+    :hasActor <http://www.semanticmovies.pt/Person/nm0000027>,
+        <http://www.semanticmovies.pt/Person/nm0000148>,
+        <http://www.semanticmovies.pt/Person/nm0000402>,
+        <http://www.semanticmovies.pt/Person/nm0000434> ;
+    :hasDirector <http://www.semanticmovies.pt/Person/nm0000184> ;
+    :hasFilmID "tt0076759" ;
+    :hasGenre <http://www.semanticmovies.pt/#Action>,
+        <http://www.semanticmovies.pt/#Adventure>,
+        <http://www.semanticmovies.pt/#Fantasy>,
+        <http://www.semanticmovies.pt/#Sci-Fi> ;
+    :hasPlot "Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a wookiee and two droids to save the universe from the Empire's world-destroying battle-station, while also attempting to rescue Princess Leia from the evil Darth Vader." ;
+    :hasPoster "http://ia.media-imdb.com/images/M/MV5BMTU4NTczODkwM15BMl5BanBnXkFtZTcwMzEyMTIyMw@@._V1_.jpg" ;
+    :hasRating 8.7e+00 ;
+    :hasReleaseDate "1977-05-25" ;
+    :hasRuntime 7260 ;
+    :hasTagline "It's Back! (re-release)" ;
+    :hasTitle "Star Wars" ;
+    :hasVotes 804188 ;
+    :hasWriter <http://www.semanticmovies.pt/Person/nm0000184> .
+
+<http://www.semanticmovies.pt/Film/tt0102926> a :Film ;
+    :hasActor <http://www.semanticmovies.pt/Person/nm0000149>,
+        <http://www.semanticmovies.pt/Person/nm0000164>,
+        <http://www.semanticmovies.pt/Person/nm0095029>,
+        <http://www.semanticmovies.pt/Person/nm0501435> ;
+    :hasDirector <http://www.semanticmovies.pt/Person/nm0001129> ;
+    :hasFilmID "tt0102926" ;
+    :hasGenre <http://www.semanticmovies.pt/#Crime>,
+        <http://www.semanticmovies.pt/#Drama>,
+        <http://www.semanticmovies.pt/#Thriller> ;
+    :hasPlot "A young F.B.I. cadet must confide in an incarcerated and manipulative killer to receive his help on catching another serial killer who skins his victims." ;
+    :hasPoster "http://ia.media-imdb.com/images/M/MV5BMTQ2NzkzMDI4OF5BMl5BanBnXkFtZTcwMDA0NzE1NA@@._V1_.jpg" ;
+    :hasRating 8.6e+00 ;
+    :hasReleaseDate "1991-02-14" ;
+    :hasRuntime 7080 ;
+    :hasTagline "Dr. Hannibal Lecter. Brilliant. Cunning. Psychotic. In his mind lies the clue to a ruthless killer. - Clarice Starling, FBI. Brilliant. Vulnerable. Alone. She must trust him to stop the killer." ;
+    :hasTitle "The Silence of the Lambs" ;
+    :hasVotes 806751 ;
+    :hasWriter <http://www.semanticmovies.pt/Person/nm0365383>,
+        <http://www.semanticmovies.pt/Person/nm0848217> .
+
+<http://www.semanticmovies.pt/Film/tt0108052> a :Film ;
+    :hasActor <http://www.semanticmovies.pt/Person/nm0000146>,
+        <http://www.semanticmovies.pt/Person/nm0000553>,
+        <http://www.semanticmovies.pt/Person/nm0001426>,
+        <http://www.semanticmovies.pt/Person/nm0328751> ;
+    :hasDirector <http://www.semanticmovies.pt/Person/nm0000229> ;
+    :hasFilmID "tt0108052" ;
+    :hasGenre <http://www.semanticmovies.pt/#Biography>,
+        <http://www.semanticmovies.pt/#Drama>,
+        <http://www.semanticmovies.pt/#History> ;
+    :hasPlot "In Poland during World War II, Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis." ;
+    :hasPoster "http://ia.media-imdb.com/images/M/MV5BMzMwMTM4MDU2N15BMl5BanBnXkFtZTgwMzQ0MjMxMDE@._V1_.jpg" ;
+    :hasRating 8.9e+00 ;
+    :hasReleaseDate "1994-02-04" ;
+    :hasRuntime 11700 ;
+    :hasTagline "Whoever saves one life, saves the world entire." ;
+    :hasTitle "Schindler's List" ;
+    :hasVotes 794760 ;
+    :hasWriter <http://www.semanticmovies.pt/Person/nm0001873>,
+        <http://www.semanticmovies.pt/Person/nm0447745> .
+
+<http://www.semanticmovies.pt/Film/tt0114369> a :Film ;
+    :hasActor <http://www.semanticmovies.pt/Person/nm0000093>,
+        <http://www.semanticmovies.pt/Person/nm0000151>,
+        <http://www.semanticmovies.pt/Person/nm0000228>,
+        <http://www.semanticmovies.pt/Person/nm0001825> ;
+    :hasDirector <http://www.semanticmovies.pt/Person/nm0000399> ;
+    :hasFilmID "tt0114369" ;
+    :hasGenre <http://www.semanticmovies.pt/#Crime>,
+        <http://www.semanticmovies.pt/#Drama>,
+        <http://www.semanticmovies.pt/#Mystery>,
+        <http://www.semanticmovies.pt/#Thriller> ;
+    :hasPlot "Two detectives, a rookie and a veteran, hunt a serial killer who uses the seven deadly sins as his modus operandi." ;
+    :hasPoster "http://ia.media-imdb.com/images/M/MV5BMTQwNTU3MTE4NF5BMl5BanBnXkFtZTcwOTgxNDM2Mg@@._V1_.jpg" ;
+    :hasRating 8.6e+00 ;
+    :hasReleaseDate "1995-09-22" ;
+    :hasRuntime 7620 ;
+    :hasTagline "Long is the way, and hard, that out of hell leads up to light." ;
+    :hasTitle "Se7en" ;
+    :hasVotes 937444 ;
+    :hasWriter <http://www.semanticmovies.pt/Person/nm0001825> .
+
+<http://www.semanticmovies.pt/Film/tt0118799> a :Film ;
+    :hasActor <http://www.semanticmovies.pt/Person/nm0000905>,
+        <http://www.semanticmovies.pt/Person/nm0000971>,
+        <http://www.semanticmovies.pt/Person/nm0134493>,
+        <http://www.semanticmovies.pt/Person/nm0243842> ;
+    :hasDirector <http://www.semanticmovies.pt/Person/nm0000905> ;
+    :hasFilmID "tt0118799" ;
+    :hasGenre <http://www.semanticmovies.pt/#Comedy>,
+        <http://www.semanticmovies.pt/#Drama>,
+        <http://www.semanticmovies.pt/#Romance> ;
+    :hasPlot "When an open-minded Jewish librarian and his son become victims of the Holocaust, he uses a perfect mixture of will, humor and imagination to protect his son from the dangers around their camp." ;
+    :hasPoster "http://ia.media-imdb.com/images/M/MV5BMTQwMTM2MjE4Ml5BMl5BanBnXkFtZTgwODQ2NTYxMTE@._V1_.jpg" ;
+    :hasRating 8.6e+00 ;
+    :hasReleaseDate "1999-02-12" ;
+    :hasRuntime 6960 ;
+    :hasTagline "An unforgettable fable that proves love, family and imagination conquer all." ;
+    :hasTitle "Life Is Beautiful" ;
+    :hasVotes 378730 ;
+    :hasWriter <http://www.semanticmovies.pt/Person/nm0000905>,
+        <http://www.semanticmovies.pt/Person/nm0148437> .
+
+<http://www.semanticmovies.pt/Film/tt0133093> a :Film ;
+    :hasActor <http://www.semanticmovies.pt/Person/nm0000206>,
+        <http://www.semanticmovies.pt/Person/nm0000401>,
+        <http://www.semanticmovies.pt/Person/nm0005251>,
+        <http://www.semanticmovies.pt/Person/nm0915989> ;
+    :hasDirector <http://www.semanticmovies.pt/Person/nm0905152>,
+        <http://www.semanticmovies.pt/Person/nm0905154> ;
+    :hasFilmID "tt0133093" ;
+    :hasGenre <http://www.semanticmovies.pt/#Action>,
+        <http://www.semanticmovies.pt/#Sci-Fi> ;
+    :hasPlot "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers." ;
+    :hasPoster "http://ia.media-imdb.com/images/M/MV5BMTkxNDYxOTA4M15BMl5BanBnXkFtZTgwNTk0NzQxMTE@._V1_.jpg" ;
+    :hasRating 8.7e+00 ;
+    :hasReleaseDate "1999-03-31" ;
+    :hasRuntime 8160 ;
+    :hasTagline "Free your mind" ;
+    :hasTitle "The Matrix" ;
+    :hasVotes 1120376 ;
+    :hasWriter <http://www.semanticmovies.pt/Person/nm0905152>,
+        <http://www.semanticmovies.pt/Person/nm0905154> .
+
+<http://www.semanticmovies.pt/Film/tt0317248> a :Film ;
+    :hasActor <http://www.semanticmovies.pt/Person/nm0618690>,
+        <http://www.semanticmovies.pt/Person/nm1129884>,
+        <http://www.semanticmovies.pt/Person/nm1179105>,
+        <http://www.semanticmovies.pt/Person/nm1249574> ;
+    :hasDirector <http://www.semanticmovies.pt/Person/nm0526199>,
+        <http://www.semanticmovies.pt/Person/nm0576987> ;
+    :hasFilmID "tt0317248" ;
+    :hasGenre <http://www.semanticmovies.pt/#Crime>,
+        <http://www.semanticmovies.pt/#Drama> ;
+    :hasPlot "Two boys growing up in a violent neighborhood of Rio de Janeiro take different paths: one becomes a photographer, the other a drug dealer." ;
+    :hasPoster "http://ia.media-imdb.com/images/M/MV5BMjA4ODQ3ODkzNV5BMl5BanBnXkFtZTYwOTc4NDI3._V1_.jpg" ;
+    :hasRating 8.7e+00 ;
+    :hasReleaseDate "2004-02-13" ;
+    :hasRuntime 7800 ;
+    :hasTagline "If you run, the beast will get you. If you stay, the beast will eat you" ;
+    :hasTitle "City of God" ;
+    :hasVotes 494368 ;
+    :hasWriter <http://www.semanticmovies.pt/Person/nm0513130>,
+        <http://www.semanticmovies.pt/Person/nm1130251> .
+
+<http://www.semanticmovies.pt/Film/tt0468569> a :Film ;
+    :hasActor <http://www.semanticmovies.pt/Person/nm0000288>,
+        <http://www.semanticmovies.pt/Person/nm0000323>,
+        <http://www.semanticmovies.pt/Person/nm0001173>,
+        <http://www.semanticmovies.pt/Person/nm0005132> ;
+    :hasDirector <http://www.semanticmovies.pt/Person/nm0634240> ;
+    :hasFilmID "tt0468569" ;
+    :hasGenre <http://www.semanticmovies.pt/#Action>,
+        <http://www.semanticmovies.pt/#Crime>,
+        <http://www.semanticmovies.pt/#Drama> ;
+    :hasPlot "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, the caped crusader must come to terms with one of the greatest psychological tests of his ability to fight injustice." ;
+    :hasPoster "http://ia.media-imdb.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg" ;
+    :hasRating 9 ;
+    :hasReleaseDate "2008-07-18" ;
+    :hasRuntime 9120 ;
+    :hasTagline "Why So Serious?" ;
+    :hasTitle "The Dark Knight" ;
+    :hasVotes 1535680 ;
+    :hasWriter <http://www.semanticmovies.pt/Person/nm0634240>,
+        <http://www.semanticmovies.pt/Person/nm0634300> .
+
+<http://www.semanticmovies.pt/Film/tt0816692> a :Film ;
+    :hasActor <http://www.semanticmovies.pt/Person/nm0000190>,
+        <http://www.semanticmovies.pt/Person/nm0004266>,
+        <http://www.semanticmovies.pt/Person/nm1567113>,
+        <http://www.semanticmovies.pt/Person/nm3237775> ;
+    :hasDirector <http://www.semanticmovies.pt/Person/nm0634240> ;
+    :hasFilmID "tt0816692" ;
+    :hasGenre <http://www.semanticmovies.pt/#Adventure>,
+        <http://www.semanticmovies.pt/#Drama>,
+        <http://www.semanticmovies.pt/#Sci-Fi> ;
+    :hasPlot "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival." ;
+    :hasPoster "http://ia.media-imdb.com/images/M/MV5BMjIxNTU4MzY4MF5BMl5BanBnXkFtZTgwMzM4ODI3MjE@._V1_.jpg" ;
+    :hasRating 8.7e+00 ;
+    :hasReleaseDate "2014-11-07" ;
+    :hasRuntime 10140 ;
+    :hasTagline "Mankind was born on Earth. It was never meant to die here." ;
+    :hasTitle "Interstellar" ;
+    :hasVotes 775154 ;
+    :hasWriter <http://www.semanticmovies.pt/Person/nm0634240>,
+        <http://www.semanticmovies.pt/Person/nm0634300> .
+
+<http://www.semanticmovies.pt/Film/tt1375666> a :Film ;
+    :hasActor <http://www.semanticmovies.pt/Person/nm0000138>,
+        <http://www.semanticmovies.pt/Person/nm0330687>,
+        <http://www.semanticmovies.pt/Person/nm0680983>,
+        <http://www.semanticmovies.pt/Person/nm0913822> ;
+    :hasDirector <http://www.semanticmovies.pt/Person/nm0634240> ;
+    :hasFilmID "tt1375666" ;
+    :hasGenre <http://www.semanticmovies.pt/#Action>,
+        <http://www.semanticmovies.pt/#Mystery>,
+        <http://www.semanticmovies.pt/#Sci-Fi>,
+        <http://www.semanticmovies.pt/#Thriller> ;
+    :hasPlot "A thief who steals corporate secrets through use of the dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO." ;
+    :hasPoster "http://ia.media-imdb.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg" ;
+    :hasRating 8.8e+00 ;
+    :hasReleaseDate "2010-07-16" ;
+    :hasRuntime 8880 ;
+    :hasTagline "Your mind is the scene of the crime" ;
+    :hasTitle "Inception" ;
+    :hasVotes 1335217 ;
+    :hasWriter <http://www.semanticmovies.pt/Person/nm0634240> .
+
+<http://www.semanticmovies.pt/Film/tt0080684> a :Film ;
+    :hasActor <http://www.semanticmovies.pt/Person/nm0000148>,
+        <http://www.semanticmovies.pt/Person/nm0000402>,
+        <http://www.semanticmovies.pt/Person/nm0000434>,
+        <http://www.semanticmovies.pt/Person/nm0001850> ;
+    :hasDirector <http://www.semanticmovies.pt/Person/nm0449984> ;
+    :hasFilmID "tt0080684" ;
+    :hasGenre <http://www.semanticmovies.pt/#Action>,
+        <http://www.semanticmovies.pt/#Adventure>,
+        <http://www.semanticmovies.pt/#Fantasy>,
+        <http://www.semanticmovies.pt/#Sci-Fi> ;
+    :hasPlot "After the rebels have been brutally overpowered by the Empire on their newly established base, Luke Skywalker takes advanced Jedi training with Master Yoda, while his friends are pursued by Darth Vader as part of his plan to capture Luke." ;
+    :hasPoster "http://ia.media-imdb.com/images/M/MV5BMjE2MzQwMTgxN15BMl5BanBnXkFtZTcwMDQzNjk2OQ@@._V1_.jpg" ;
+    :hasRating 8.8e+00 ;
+    :hasReleaseDate "1980-06-20" ;
+    :hasRuntime 7440 ;
+    :hasTagline "The Adventure Continues..." ;
+    :hasTitle "Star Wars: Episode V - The Empire Strikes Back" ;
+    :hasVotes 733631 ;
+    :hasWriter <http://www.semanticmovies.pt/Person/nm0001410>,
+        <http://www.semanticmovies.pt/Person/nm0102824> .
+
+<http://www.semanticmovies.pt/#Crime> a <http://www.semanticmovies.pt/#Genre>,
+        owl:NamedIndividual ;
+    :isGenreOf <http://www.semanticmovies.pt/Film/tt0050083>,
+        <http://www.semanticmovies.pt/Film/tt0068646>,
+        <http://www.semanticmovies.pt/Film/tt0071562>,
+        <http://www.semanticmovies.pt/Film/tt0099685>,
+        <http://www.semanticmovies.pt/Film/tt0102926>,
+        <http://www.semanticmovies.pt/Film/tt0110413>,
+        <http://www.semanticmovies.pt/Film/tt0110912>,
+        <http://www.semanticmovies.pt/Film/tt0111161>,
+        <http://www.semanticmovies.pt/Film/tt0114369>,
+        <http://www.semanticmovies.pt/Film/tt0114814>,
+        <http://www.semanticmovies.pt/Film/tt0317248>,
+        <http://www.semanticmovies.pt/Film/tt0468569> .
+
+<http://www.semanticmovies.pt/#Film> a owl:Class ;
+    rdfs:subClassOf owl:Thing .
+
+<http://www.semanticmovies.pt/#Drama> a <http://www.semanticmovies.pt/#Genre>,
+        owl:NamedIndividual ;
+    :isGenreOf <http://www.semanticmovies.pt/Film/tt0038650>,
+        <http://www.semanticmovies.pt/Film/tt0047478>,
+        <http://www.semanticmovies.pt/Film/tt0050083>,
+        <http://www.semanticmovies.pt/Film/tt0068646>,
+        <http://www.semanticmovies.pt/Film/tt0071562>,
+        <http://www.semanticmovies.pt/Film/tt0073486>,
+        <http://www.semanticmovies.pt/Film/tt0099685>,
+        <http://www.semanticmovies.pt/Film/tt0102926>,
+        <http://www.semanticmovies.pt/Film/tt0108052>,
+        <http://www.semanticmovies.pt/Film/tt0109830>,
+        <http://www.semanticmovies.pt/Film/tt0110413>,
+        <http://www.semanticmovies.pt/Film/tt0110912>,
+        <http://www.semanticmovies.pt/Film/tt0111161>,
+        <http://www.semanticmovies.pt/Film/tt0114369>,
+        <http://www.semanticmovies.pt/Film/tt0114814>,
+        <http://www.semanticmovies.pt/Film/tt0118799>,
+        <http://www.semanticmovies.pt/Film/tt0120815>,
+        <http://www.semanticmovies.pt/Film/tt0137523>,
+        <http://www.semanticmovies.pt/Film/tt0317248>,
+        <http://www.semanticmovies.pt/Film/tt0468569>,
+        <http://www.semanticmovies.pt/Film/tt0816692> .
+
+<http://www.semanticmovies.pt/#Genre> a owl:Class ;
+    rdfs:subClassOf owl:Thing .
+
+<http://www.semanticmovies.pt/#Director> a <http://www.semanticmovies.pt/#Job>,
+        owl:NamedIndividual ;
+    :isJobOf <http://www.semanticmovies.pt/Person/nm0000041>,
+        <http://www.semanticmovies.pt/Person/nm0000108>,
+        <http://www.semanticmovies.pt/Person/nm0000184>,
+        <http://www.semanticmovies.pt/Person/nm0000217>,
+        <http://www.semanticmovies.pt/Person/nm0000229>,
+        <http://www.semanticmovies.pt/Person/nm0000233>,
+        <http://www.semanticmovies.pt/Person/nm0000338>,
+        <http://www.semanticmovies.pt/Person/nm0000399>,
+        <http://www.semanticmovies.pt/Person/nm0000709>,
+        <http://www.semanticmovies.pt/Person/nm0000905>,
+        <http://www.semanticmovies.pt/Person/nm0001008>,
+        <http://www.semanticmovies.pt/Person/nm0001104>,
+        <http://www.semanticmovies.pt/Person/nm0001129>,
+        <http://www.semanticmovies.pt/Person/nm0001232>,
+        <http://www.semanticmovies.pt/Person/nm0001392>,
+        <http://www.semanticmovies.pt/Person/nm0001466>,
+        <http://www.semanticmovies.pt/Person/nm0001486>,
+        <http://www.semanticmovies.pt/Person/nm0001741>,
+        <http://www.semanticmovies.pt/Person/nm0449984>,
+        <http://www.semanticmovies.pt/Person/nm0526199>,
+        <http://www.semanticmovies.pt/Person/nm0576987>,
+        <http://www.semanticmovies.pt/Person/nm0634240>,
+        <http://www.semanticmovies.pt/Person/nm0905152>,
+        <http://www.semanticmovies.pt/Person/nm0905154> .
+
+<http://www.semanticmovies.pt/#Writer> a <http://www.semanticmovies.pt/#Job>,
+        owl:NamedIndividual ;
+    :isJobOf <http://www.semanticmovies.pt/Person/nm0000041>,
+        <http://www.semanticmovies.pt/Person/nm0000108>,
+        <http://www.semanticmovies.pt/Person/nm0000175>,
+        <http://www.semanticmovies.pt/Person/nm0000184>,
+        <http://www.semanticmovies.pt/Person/nm0000233>,
+        <http://www.semanticmovies.pt/Person/nm0000338>,
+        <http://www.semanticmovies.pt/Person/nm0000812>,
+        <http://www.semanticmovies.pt/Person/nm0000905>,
+        <http://www.semanticmovies.pt/Person/nm0001104>,
+        <http://www.semanticmovies.pt/Person/nm0001410>,
+        <http://www.semanticmovies.pt/Person/nm0001466>,
+        <http://www.semanticmovies.pt/Person/nm0001825>,
+        <http://www.semanticmovies.pt/Person/nm0001873>,
+        <http://www.semanticmovies.pt/Person/nm0003160>,
+        <http://www.semanticmovies.pt/Person/nm0006872>,
+        <http://www.semanticmovies.pt/Person/nm0102824>,
+        <http://www.semanticmovies.pt/Person/nm0148437>,
+        <http://www.semanticmovies.pt/Person/nm0325743>,
+        <http://www.semanticmovies.pt/Person/nm0329304>,
+        <http://www.semanticmovies.pt/Person/nm0343165>,
+        <http://www.semanticmovies.pt/Person/nm0352443>,
+        <http://www.semanticmovies.pt/Person/nm0365383>,
+        <http://www.semanticmovies.pt/Person/nm0368074>,
+        <http://www.semanticmovies.pt/Person/nm0369142>,
+        <http://www.semanticmovies.pt/Person/nm0447745>,
+        <http://www.semanticmovies.pt/Person/nm0513130>,
+        <http://www.semanticmovies.pt/Person/nm0634240>,
+        <http://www.semanticmovies.pt/Person/nm0634300>,
+        <http://www.semanticmovies.pt/Person/nm0657333>,
+        <http://www.semanticmovies.pt/Person/nm0683380>,
+        <http://www.semanticmovies.pt/Person/nm0701374>,
+        <http://www.semanticmovies.pt/Person/nm0734441>,
+        <http://www.semanticmovies.pt/Person/nm0741627>,
+        <http://www.semanticmovies.pt/Person/nm0744839>,
+        <http://www.semanticmovies.pt/Person/nm0848217>,
+        <http://www.semanticmovies.pt/Person/nm0866058>,
+        <http://www.semanticmovies.pt/Person/nm0880243>,
+        <http://www.semanticmovies.pt/Person/nm0898812>,
+        <http://www.semanticmovies.pt/Person/nm0905152>,
+        <http://www.semanticmovies.pt/Person/nm0905154>,
+        <http://www.semanticmovies.pt/Person/nm0909638>,
+        <http://www.semanticmovies.pt/Person/nm1130251> .
+
+<http://www.semanticmovies.pt/#Actor> a <http://www.semanticmovies.pt/#Job>,
+        owl:NamedIndividual ;
+    :isJobOf <http://www.semanticmovies.pt/Person/nm0000008>,
+        <http://www.semanticmovies.pt/Person/nm0000020>,
+        <http://www.semanticmovies.pt/Person/nm0000027>,
+        <http://www.semanticmovies.pt/Person/nm0000071>,
+        <http://www.semanticmovies.pt/Person/nm0000093>,
+        <http://www.semanticmovies.pt/Person/nm0000134>,
+        <http://www.semanticmovies.pt/Person/nm0000138>,
+        <http://www.semanticmovies.pt/Person/nm0000142>,
+        <http://www.semanticmovies.pt/Person/nm0000146>,
+        <http://www.semanticmovies.pt/Person/nm0000148>,
+        <http://www.semanticmovies.pt/Person/nm0000149>,
+        <http://www.semanticmovies.pt/Person/nm0000151>,
+        <http://www.semanticmovies.pt/Person/nm0000158>,
+        <http://www.semanticmovies.pt/Person/nm0000164>,
+        <http://www.semanticmovies.pt/Person/nm0000168>,
+        <http://www.semanticmovies.pt/Person/nm0000190>,
+        <http://www.semanticmovies.pt/Person/nm0000197>,
+        <http://www.semanticmovies.pt/Person/nm0000198>,
+        <http://www.semanticmovies.pt/Person/nm0000199>,
+        <http://www.semanticmovies.pt/Person/nm0000204>,
+        <http://www.semanticmovies.pt/Person/nm0000206>,
+        <http://www.semanticmovies.pt/Person/nm0000209>,
+        <http://www.semanticmovies.pt/Person/nm0000228>,
+        <http://www.semanticmovies.pt/Person/nm0000235>,
+        <http://www.semanticmovies.pt/Person/nm0000237>,
+        <http://www.semanticmovies.pt/Person/nm0000246>,
+        <http://www.semanticmovies.pt/Person/nm0000286>,
+        <http://www.semanticmovies.pt/Person/nm0000288>,
+        <http://www.semanticmovies.pt/Person/nm0000293>,
+        <http://www.semanticmovies.pt/Person/nm0000307>,
+        <http://www.semanticmovies.pt/Person/nm0000314>,
+        <http://www.semanticmovies.pt/Person/nm0000321>,
+        <http://www.semanticmovies.pt/Person/nm0000323>,
+        <http://www.semanticmovies.pt/Person/nm0000354>,
+        <http://www.semanticmovies.pt/Person/nm0000380>,
+        <http://www.semanticmovies.pt/Person/nm0000398>,
+        <http://www.semanticmovies.pt/Person/nm0000401>,
+        <http://www.semanticmovies.pt/Person/nm0000402>,
+        <http://www.semanticmovies.pt/Person/nm0000434>,
+        <http://www.semanticmovies.pt/Person/nm0000473>,
+        <http://www.semanticmovies.pt/Person/nm0000501>,
+        <http://www.semanticmovies.pt/Person/nm0000553>,
+        <http://www.semanticmovies.pt/Person/nm0000582>,
+        <http://www.semanticmovies.pt/Person/nm0000606>,
+        <http://www.semanticmovies.pt/Person/nm0000641>,
+        <http://www.semanticmovies.pt/Person/nm0000704>,
+        <http://www.semanticmovies.pt/Person/nm0000705>,
+        <http://www.semanticmovies.pt/Person/nm0000732>,
+        <http://www.semanticmovies.pt/Person/nm0000842>,
+        <http://www.semanticmovies.pt/Person/nm0000859>,
+        <http://www.semanticmovies.pt/Person/nm0000905>,
+        <http://www.semanticmovies.pt/Person/nm0000966>,
+        <http://www.semanticmovies.pt/Person/nm0000971>,
+        <http://www.semanticmovies.pt/Person/nm0001001>,
+        <http://www.semanticmovies.pt/Person/nm0001012>,
+        <http://www.semanticmovies.pt/Person/nm0001173>,
+        <http://www.semanticmovies.pt/Person/nm0001221>,
+        <http://www.semanticmovies.pt/Person/nm0001426>,
+        <http://www.semanticmovies.pt/Person/nm0001533>,
+        <http://www.semanticmovies.pt/Person/nm0001536>,
+        <http://www.semanticmovies.pt/Person/nm0001557>,
+        <http://www.semanticmovies.pt/Person/nm0001570>,
+        <http://www.semanticmovies.pt/Person/nm0001590>,
+        <http://www.semanticmovies.pt/Person/nm0001656>,
+        <http://www.semanticmovies.pt/Person/nm0001673>,
+        <http://www.semanticmovies.pt/Person/nm0001744>,
+        <http://www.semanticmovies.pt/Person/nm0001812>,
+        <http://www.semanticmovies.pt/Person/nm0001825>,
+        <http://www.semanticmovies.pt/Person/nm0001850>,
+        <http://www.semanticmovies.pt/Person/nm0002011>,
+        <http://www.semanticmovies.pt/Person/nm0004266>,
+        <http://www.semanticmovies.pt/Person/nm0005132>,
+        <http://www.semanticmovies.pt/Person/nm0005212>,
+        <http://www.semanticmovies.pt/Person/nm0005251>,
+        <http://www.semanticmovies.pt/Person/nm0006669>,
+        <http://www.semanticmovies.pt/Person/nm0077720>,
+        <http://www.semanticmovies.pt/Person/nm0089217>,
+        <http://www.semanticmovies.pt/Person/nm0095029>,
+        <http://www.semanticmovies.pt/Person/nm0110480>,
+        <http://www.semanticmovies.pt/Person/nm0122653>,
+        <http://www.semanticmovies.pt/Person/nm0134493>,
+        <http://www.semanticmovies.pt/Person/nm0243842>,
+        <http://www.semanticmovies.pt/Person/nm0275835>,
+        <http://www.semanticmovies.pt/Person/nm0321294>,
+        <http://www.semanticmovies.pt/Person/nm0328751>,
+        <http://www.semanticmovies.pt/Person/nm0330687>,
+        <http://www.semanticmovies.pt/Person/nm0348409>,
+        <http://www.semanticmovies.pt/Person/nm0501435>,
+        <http://www.semanticmovies.pt/Person/nm0593775>,
+        <http://www.semanticmovies.pt/Person/nm0618690>,
+        <http://www.semanticmovies.pt/Person/nm0680983>,
+        <http://www.semanticmovies.pt/Person/nm0793616>,
+        <http://www.semanticmovies.pt/Person/nm0793766>,
+        <http://www.semanticmovies.pt/Person/nm0875477>,
+        <http://www.semanticmovies.pt/Person/nm0908919>,
+        <http://www.semanticmovies.pt/Person/nm0913822>,
+        <http://www.semanticmovies.pt/Person/nm0915989>,
+        <http://www.semanticmovies.pt/Person/nm1129884>,
+        <http://www.semanticmovies.pt/Person/nm1179105>,
+        <http://www.semanticmovies.pt/Person/nm1249574>,
+        <http://www.semanticmovies.pt/Person/nm1567113>,
+        <http://www.semanticmovies.pt/Person/nm3237775> .
+

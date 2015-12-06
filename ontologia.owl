@@ -1,0 +1,576 @@
+﻿@prefix : <http://www.semanticmovies.pt/MovieOntology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticmovies.pt/> .
+
+<http://www.semanticmovies.pt/> rdf:type owl:Ontology .
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://www.semanticmovies.pt/#hasActor
+
+<http://www.semanticmovies.pt/#hasActor> rdf:type owl:ObjectProperty ;
+                              
+                              rdfs:domain <http://www.semanticmovies.pt/#Film> ;
+                              
+                              rdfs:range <http://www.semanticmovies.pt/#Person> .
+
+
+
+###  http://www.semanticmovies.pt/#hasAward
+
+<http://www.semanticmovies.pt/#hasAward> rdf:type owl:ObjectProperty ;
+                              
+                              rdfs:range <http://www.semanticmovies.pt/#Award> ;
+                              
+                              rdfs:domain <http://www.semanticmovies.pt/#Film> ,
+                                          <http://www.semanticmovies.pt/#Person> .
+
+
+
+###  http://www.semanticmovies.pt/#hasDirector
+
+<http://www.semanticmovies.pt/#hasDirector> rdf:type owl:ObjectProperty ;
+                                 
+                                 rdfs:domain <http://www.semanticmovies.pt/#Film> ;
+                                 
+                                 rdfs:range <http://www.semanticmovies.pt/#Person> .
+
+
+
+###  http://www.semanticmovies.pt/#hasGenre
+
+<http://www.semanticmovies.pt/#hasGenre> rdf:type owl:ObjectProperty ;
+                              
+                              rdfs:domain <http://www.semanticmovies.pt/#Film> ;
+                              
+                              rdfs:range <http://www.semanticmovies.pt/#Genre> .
+
+
+
+###  http://www.semanticmovies.pt/#hasJob
+
+<http://www.semanticmovies.pt/#hasJob> rdf:type owl:ObjectProperty ;
+                            
+                            rdfs:range <http://www.semanticmovies.pt/#Job> ;
+                            
+                            rdfs:domain <http://www.semanticmovies.pt/#Person> .
+
+
+
+###  http://www.semanticmovies.pt/#hasProducer
+
+<http://www.semanticmovies.pt/#hasProducer> rdf:type owl:ObjectProperty ;
+                                 
+                                 rdfs:domain <http://www.semanticmovies.pt/#Film> ;
+                                 
+                                 rdfs:range <http://www.semanticmovies.pt/#Person> .
+
+
+
+###  http://www.semanticmovies.pt/#hasWriter
+
+<http://www.semanticmovies.pt/#hasWriter> rdf:type owl:ObjectProperty ;
+                               
+                               rdfs:domain <http://www.semanticmovies.pt/#Film> ;
+                               
+                               rdfs:range <http://www.semanticmovies.pt/#Person> .
+
+
+
+###  http://www.semanticmovies.pt/#isActorOf
+
+<http://www.semanticmovies.pt/#isActorOf> rdf:type owl:ObjectProperty ;
+                               
+                               owl:inverseOf <http://www.semanticmovies.pt/#hasActor> .
+
+
+
+###  http://www.semanticmovies.pt/#isAwardOf
+
+<http://www.semanticmovies.pt/#isAwardOf> rdf:type owl:ObjectProperty ;
+                               
+                               owl:inverseOf <http://www.semanticmovies.pt/#hasAward> .
+
+
+
+###  http://www.semanticmovies.pt/#isDirectorOf
+
+<http://www.semanticmovies.pt/#isDirectorOf> rdf:type owl:ObjectProperty ;
+                                  
+                                  owl:inverseOf <http://www.semanticmovies.pt/#hasDirector> .
+
+
+
+###  http://www.semanticmovies.pt/#isGenreOf
+
+<http://www.semanticmovies.pt/#isGenreOf> rdf:type owl:ObjectProperty ;
+                               
+                               owl:inverseOf <http://www.semanticmovies.pt/#hasGenre> .
+
+
+
+###  http://www.semanticmovies.pt/#isJobOf
+
+<http://www.semanticmovies.pt/#isJobOf> rdf:type owl:ObjectProperty ;
+                             
+                             rdfs:subPropertyOf owl:topObjectProperty ;
+                             
+                             owl:inverseOf <http://www.semanticmovies.pt/#hasJob> .
+
+
+
+###  http://www.semanticmovies.pt/#isProducerOf
+
+<http://www.semanticmovies.pt/#isProducerOf> rdf:type owl:ObjectProperty ;
+                                  
+                                  owl:inverseOf <http://www.semanticmovies.pt/#hasProducer> .
+
+
+
+###  http://www.semanticmovies.pt/#isWriterOf
+
+<http://www.semanticmovies.pt/#isWriterOf> rdf:type owl:ObjectProperty ;
+                                
+                                owl:inverseOf <http://www.semanticmovies.pt/#hasWriter> .
+
+
+
+
+
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+
+
+###  http://www.semanticmovies.pt/#hasBirthDate
+
+<http://www.semanticmovies.pt/#hasBirthDate> rdf:type owl:DatatypeProperty ;
+                                  
+                                  rdfs:range xsd:dateTime ;
+                                  
+                                  rdfs:subPropertyOf owl:topDataProperty ;
+                                  
+                                  rdfs:domain <http://www.semanticmovies.pt/#Person> .
+
+
+
+###  http://www.semanticmovies.pt/#hasFilmID
+
+<http://www.semanticmovies.pt/#hasFilmID> rdf:type owl:DatatypeProperty ;
+                               
+                               rdfs:range xsd:string ;
+                               
+                               rdfs:subPropertyOf owl:topDataProperty ;
+                               
+                               rdfs:domain <http://www.semanticmovies.pt/#Film> .
+
+
+
+###  http://www.semanticmovies.pt/#hasGender
+
+<http://www.semanticmovies.pt/#hasGender> rdf:type owl:DatatypeProperty ;
+                               
+                               rdfs:range xsd:string ;
+                               
+                               rdfs:subPropertyOf owl:topDataProperty ;
+                               
+                               rdfs:domain <http://www.semanticmovies.pt/#Person> .
+
+
+
+###  http://www.semanticmovies.pt/#hasName
+
+<http://www.semanticmovies.pt/#hasName> rdf:type owl:DatatypeProperty ;
+                             
+                             rdfs:range xsd:string ;
+                             
+                             rdfs:subPropertyOf owl:topDataProperty ;
+                             
+                             rdfs:domain <http://www.semanticmovies.pt/#Person> .
+
+
+
+###  http://www.semanticmovies.pt/#hasPersonID
+
+<http://www.semanticmovies.pt/#hasPersonID> rdf:type owl:DatatypeProperty ;
+                                 
+                                 rdfs:range xsd:string ;
+                                 
+                                 rdfs:subPropertyOf owl:topDataProperty ;
+                                 
+                                 rdfs:domain <http://www.semanticmovies.pt/#Person> .
+
+
+
+###  http://www.semanticmovies.pt/#hasPlot
+
+<http://www.semanticmovies.pt/#hasPlot> rdf:type owl:DatatypeProperty ;
+                             
+                             rdfs:range xsd:string ;
+                             
+                             rdfs:subPropertyOf owl:topDataProperty ;
+                             
+                             rdfs:domain <http://www.semanticmovies.pt/#Film> .
+
+
+
+###  http://www.semanticmovies.pt/#hasPoster
+
+<http://www.semanticmovies.pt/#hasPoster> rdf:type owl:DatatypeProperty ;
+                               
+                               rdfs:range xsd:anyURI ;
+                               
+                               rdfs:subPropertyOf owl:topDataProperty ;
+                               
+                               rdfs:domain <http://www.semanticmovies.pt/#Film> .
+
+
+
+###  http://www.semanticmovies.pt/#hasRating
+
+<http://www.semanticmovies.pt/#hasRating> rdf:type owl:DatatypeProperty ;
+                               
+                               rdfs:range xsd:float ;
+                               
+                               rdfs:subPropertyOf owl:topDataProperty ;
+                               
+                               rdfs:domain <http://www.semanticmovies.pt/#Film> .
+
+
+
+###  http://www.semanticmovies.pt/#hasReleaseDate
+
+<http://www.semanticmovies.pt/#hasReleaseDate> rdf:type owl:DatatypeProperty ;
+                                    
+                                    rdfs:range xsd:dateTime ;
+                                    
+                                    rdfs:subPropertyOf owl:topDataProperty ;
+                                    
+                                    rdfs:domain <http://www.semanticmovies.pt/#Film> .
+
+
+
+###  http://www.semanticmovies.pt/#hasRuntime
+
+<http://www.semanticmovies.pt/#hasRuntime> rdf:type owl:DatatypeProperty ;
+                                
+                                rdfs:range xsd:integer ;
+                                
+                                rdfs:subPropertyOf owl:topDataProperty ;
+                                
+                                rdfs:domain <http://www.semanticmovies.pt/#Film> .
+
+
+
+###  http://www.semanticmovies.pt/#hasTagline
+
+<http://www.semanticmovies.pt/#hasTagline> rdf:type owl:DatatypeProperty ;
+                                
+                                rdfs:range xsd:string ;
+                                
+                                rdfs:subPropertyOf owl:topDataProperty ;
+                                
+                                rdfs:domain <http://www.semanticmovies.pt/#Film> .
+
+
+
+###  http://www.semanticmovies.pt/#hasTitle
+
+<http://www.semanticmovies.pt/#hasTitle> rdf:type owl:DatatypeProperty ;
+                              
+                              rdfs:range xsd:string ;
+                              
+                              rdfs:subPropertyOf owl:topDataProperty ;
+                              
+                              rdfs:domain <http://www.semanticmovies.pt/#Film> .
+
+
+
+###  http://www.semanticmovies.pt/#hasVotes
+
+<http://www.semanticmovies.pt/#hasVotes> rdf:type owl:DatatypeProperty ;
+                              
+                              rdfs:range xsd:integer ;
+                              
+                              rdfs:subPropertyOf owl:topDataProperty ;
+                              
+                              rdfs:domain <http://www.semanticmovies.pt/#Film> .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://www.semanticmovies.pt/#Award
+
+<http://www.semanticmovies.pt/#Award> rdf:type owl:Class ;
+                           
+                           rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.semanticmovies.pt/#Film
+
+<http://www.semanticmovies.pt/#Film> rdf:type owl:Class ;
+                          
+                          rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.semanticmovies.pt/#Genre
+
+<http://www.semanticmovies.pt/#Genre> rdf:type owl:Class ;
+                           
+                           rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.semanticmovies.pt/#Job
+
+<http://www.semanticmovies.pt/#Job> rdf:type owl:Class ;
+                         
+                         rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.semanticmovies.pt/#Person
+
+<http://www.semanticmovies.pt/#Person> rdf:type owl:Class ;
+                            
+                            rdfs:subClassOf owl:Thing .
+
+
+
+
+
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+
+
+###  http://www.semanticmovies.pt/#Action
+
+<http://www.semanticmovies.pt/#Action> rdf:type owl:NamedIndividual ,
+                                     <http://www.semanticmovies.pt/#Genre> .
+
+
+
+###  http://www.semanticmovies.pt/#Actor
+
+<http://www.semanticmovies.pt/#Actor> rdf:type owl:NamedIndividual ,
+                                    <http://www.semanticmovies.pt/#Job> .
+
+
+
+###  http://www.semanticmovies.pt/#Adventure
+
+<http://www.semanticmovies.pt/#Adventure> rdf:type owl:NamedIndividual ,
+                                        <http://www.semanticmovies.pt/#Genre> .
+
+
+
+###  http://www.semanticmovies.pt/#Animation
+
+<http://www.semanticmovies.pt/#Animation> rdf:type owl:NamedIndividual ,
+                                        <http://www.semanticmovies.pt/#Genre> .
+
+
+
+###  http://www.semanticmovies.pt/#BAFTA
+
+<http://www.semanticmovies.pt/#BAFTA> rdf:type owl:NamedIndividual ,
+                                    <http://www.semanticmovies.pt/#Award> .
+
+
+
+###  http://www.semanticmovies.pt/#Biography
+
+<http://www.semanticmovies.pt/#Biography> rdf:type owl:NamedIndividual ,
+                                        <http://www.semanticmovies.pt/#Genre> .
+
+
+
+###  http://www.semanticmovies.pt/#Comedy
+
+<http://www.semanticmovies.pt/#Comedy> rdf:type owl:NamedIndividual ,
+                                     <http://www.semanticmovies.pt/#Genre> .
+
+
+
+###  http://www.semanticmovies.pt/#Crime
+
+<http://www.semanticmovies.pt/#Crime> rdf:type owl:NamedIndividual ,
+                                    <http://www.semanticmovies.pt/#Genre> .
+
+
+
+###  http://www.semanticmovies.pt/#Director
+
+<http://www.semanticmovies.pt/#Director> rdf:type owl:NamedIndividual ,
+                                       <http://www.semanticmovies.pt/#Job> .
+
+
+
+###  http://www.semanticmovies.pt/#Documentary
+
+<http://www.semanticmovies.pt/#Documentary> rdf:type owl:NamedIndividual ,
+                                          <http://www.semanticmovies.pt/#Genre> .
+
+
+
+###  http://www.semanticmovies.pt/#Drama
+
+<http://www.semanticmovies.pt/#Drama> rdf:type owl:NamedIndividual ,
+                                    <http://www.semanticmovies.pt/#Genre> .
+
+
+
+###  http://www.semanticmovies.pt/#Family
+
+<http://www.semanticmovies.pt/#Family> rdf:type owl:NamedIndividual ,
+                                     <http://www.semanticmovies.pt/#Genre> .
+
+
+
+###  http://www.semanticmovies.pt/#Fantasy
+
+<http://www.semanticmovies.pt/#Fantasy> rdf:type owl:NamedIndividual ,
+                                      <http://www.semanticmovies.pt/#Genre> .
+
+
+
+###  http://www.semanticmovies.pt/#Film-Noir
+
+<http://www.semanticmovies.pt/#Film-Noir> rdf:type owl:NamedIndividual ,
+                                        <http://www.semanticmovies.pt/#Genre> .
+
+
+
+###  http://www.semanticmovies.pt/#GoldenGlobe
+
+<http://www.semanticmovies.pt/#GoldenGlobe> rdf:type owl:NamedIndividual ,
+                                          <http://www.semanticmovies.pt/#Award> .
+
+
+
+###  http://www.semanticmovies.pt/#History
+
+<http://www.semanticmovies.pt/#History> rdf:type owl:NamedIndividual ,
+                                      <http://www.semanticmovies.pt/#Genre> .
+
+
+
+###  http://www.semanticmovies.pt/#Horror
+
+<http://www.semanticmovies.pt/#Horror> rdf:type owl:NamedIndividual ,
+                                     <http://www.semanticmovies.pt/#Genre> .
+
+
+
+###  http://www.semanticmovies.pt/#Music
+
+<http://www.semanticmovies.pt/#Music> rdf:type owl:NamedIndividual ,
+                                    <http://www.semanticmovies.pt/#Genre> .
+
+
+
+###  http://www.semanticmovies.pt/#Musical
+
+<http://www.semanticmovies.pt/#Musical> rdf:type owl:NamedIndividual ,
+                                      <http://www.semanticmovies.pt/#Genre> .
+
+
+
+###  http://www.semanticmovies.pt/#Mystery
+
+<http://www.semanticmovies.pt/#Mystery> rdf:type owl:NamedIndividual ,
+                                      <http://www.semanticmovies.pt/#Genre> .
+
+
+
+###  http://www.semanticmovies.pt/#Oscar
+
+<http://www.semanticmovies.pt/#Oscar> rdf:type owl:NamedIndividual ,
+                                    <http://www.semanticmovies.pt/#Award> .
+
+
+
+###  http://www.semanticmovies.pt/#Producer
+
+<http://www.semanticmovies.pt/#Producer> rdf:type owl:NamedIndividual ,
+                                       <http://www.semanticmovies.pt/#Job> .
+
+
+
+###  http://www.semanticmovies.pt/#Romance
+
+<http://www.semanticmovies.pt/#Romance> rdf:type owl:NamedIndividual ,
+                                      <http://www.semanticmovies.pt/#Genre> .
+
+
+
+###  http://www.semanticmovies.pt/#Sci-Fi
+
+<http://www.semanticmovies.pt/#Sci-Fi> rdf:type owl:NamedIndividual ,
+                                     <http://www.semanticmovies.pt/#Genre> .
+
+
+
+###  http://www.semanticmovies.pt/#Sport
+
+<http://www.semanticmovies.pt/#Sport> rdf:type owl:NamedIndividual ,
+                                    <http://www.semanticmovies.pt/#Genre> .
+
+
+
+###  http://www.semanticmovies.pt/#Thriller
+
+<http://www.semanticmovies.pt/#Thriller> rdf:type owl:NamedIndividual ,
+                                       <http://www.semanticmovies.pt/#Genre> .
+
+
+
+###  http://www.semanticmovies.pt/#War
+
+<http://www.semanticmovies.pt/#War> rdf:type owl:NamedIndividual ,
+                                  <http://www.semanticmovies.pt/#Genre> .
+
+
+
+###  http://www.semanticmovies.pt/#Western
+
+<http://www.semanticmovies.pt/#Western> rdf:type owl:NamedIndividual ,
+                                      <http://www.semanticmovies.pt/#Genre> .
+
+
+
+###  http://www.semanticmovies.pt/#Writer
+
+<http://www.semanticmovies.pt/#Writer> rdf:type owl:NamedIndividual ,
+                                     <http://www.semanticmovies.pt/#Job> .
+
+
+
+
+###  Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net
+
