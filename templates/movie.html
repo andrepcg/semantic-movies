@@ -1,46 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Starter Template for Bootstrap</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="style.css" rel="stylesheet">
-
-  </head>
+  {% include 'header.html' %}
 
   <body>
 
-    <nav class="navbar navbar-inverse">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Semantic Movies</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Movies</a></li>
-            <li><a href="">People</a></li>
-            <li><a href="#">Genres</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
+    {% include 'navbar.html' %}
 
     <div class="container">
 
@@ -49,19 +13,36 @@
         <!--<p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>-->
         <div class="row">
           <div class="col-md-4 imagem">
-            <img src="http://ia.media-imdb.com/images/M/MV5BMjQxMjY5MzU1NV5BMl5BanBnXkFtZTgwNzgyNjY0NzE@._V1_SX640_SY720_.jpg"/>
+            <img src="{{ movie.hasPoster }}"/>
           </div>
           <div class="col-md-8 descricao">
-            <p><strong>Title: </strong> X-Men: Apocalypse</p>
-            <p><strong>Rating: </strong> 7/10</p>
-            <p><strong>Genres: </strong> ...</p>
-            <p><strong>Título: </strong> X-Men: Apocalypse</p>
-            <p><strong>Título: </strong> X-Men: Apocalypse</p>
-            <p><strong>Plot: </strong> Exceptional London cop Nicholas Angel is involuntarily transferred to a quaint English village and paired with a witless new partner. While on the beat, Nicholas suspects a sinister conspiracy is afoot with the residents.</p>
-            <p><strong>Cast: </strong> ...</p>
-            <p><strong>Directors: </strong> ...</p>
+            <p><strong>Title: </strong> {{ movie.hasTitle }}</p>
+            <p><strong>Rating: </strong> {{ movie.hasRating }}/10 ({{ movie.hasVotes }} votes)</p>
+            <p><strong>Runtime: </strong> {{ movie.hasRuntime / 60 }} min</p>
+            <p><strong>Release date: </strong> {{ movie.hasReleaseDate }}</p>
+            <p><strong>Tagline: </strong> {{ movie.hasTagline }}</p>
+            <p><strong>Plot: </strong> {{ movie.hasPlot }}</p>
+            <p><strong>Cast: </strong>
+            {% for actor in movie.actors %}
+              <a href="/person/{{ actor.hasPersonID }}">{{ actor.hasName }}</a>,
+            {% endfor %}
+            </p>
+            <p><strong>Directors: </strong> 
+            {% for director in movie.directors %}
+              <a href="/person/{{ director.hasPersonID }}">{{ director.hasName }}</a>,
+            {% endfor %}
+            </p>
             <p><strong>Producers: </strong> ...</p>
-            <p><strong>Writers: </strong> ...</p>
+            <p><strong>Writers: </strong> 
+            {% for writer in movie.writers %}
+              <a href="/person/{{ writer.hasPersonID }}">{{ writer.hasName }}</a>,
+            {% endfor %}
+            </p>
+            <p><strong>Genres: </strong> 
+            {% for genre in movie.genres %}
+              <a href="/genres/{{ genre.hasGenre }}">{{ genre.hasGenre }}</a>,
+            {% endfor %}
+            </p>
           </div>
         </div>
 
@@ -69,8 +50,9 @@
       </div>
         <h1>Related movies</h1>
         <ul class="movie-list">
-          <li><a href=""><img src="http://ia.media-imdb.com/images/M/MV5BMjQxMjY5MzU1NV5BMl5BanBnXkFtZTgwNzgyNjY0NzE@._V1_SY317_CR2,0,214,317_AL_.jpg"/></a></li>
-          <li></li>
+          {% for movie in movie.related %}
+            <li><a href="/movies/{{ movie.hasFilmID }}"><img src="{{ movie.hasPoster }}"/></a></li>
+          {% endfor %}
         </ul>
 
     </div><!-- /.container -->

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include 'header.html' %}
+
+  <body>
+
+    {% include 'navbar.html' %}
+
+    <div class="container">
+      <div class="row">
+        <h1>{{ person.hasName }}</h1>
+      </div>
+
+      {% if moviesAsActor %}
+        <div class="row">
+          <h2>Actor in</h2>
+          <ul class="movie-list small">
+            {% for movie in moviesAsActor %}
+              <li><a href="/movies/{{ movie.hasFilmID }}"><img src="{{ movie.hasPoster }}"/></a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+      {% if moviesAsDirector %}
+        <div class="row">
+          <h2>Director in:</h2>
+          <ul class="movie-list small">
+            {% for movie in moviesAsDirector %}
+              <li><a href="/movies/{{ movie.hasFilmID }}"><img src="{{ movie.hasPoster }}"/></a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+      {% if moviesAsWriter %}
+        <div class="row">
+          <h2>Director in:</h2>
+          <ul class="movie-list small">
+            {% for movie in moviesAsWriter %}
+              <li><a href="/movies/{{ movie.hasFilmID }}"><img src="{{ movie.hasPoster }}"/></a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

@@ -9,13 +9,11 @@
     <div class="container">
 
       <div class="starter-template">
-        <h1>Random Movies</h1>
+        <h1>People</h1>
         <!--<p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>-->
-        <ul class="movie-list">
-          {% for movie in movies %}
-            <li><a href="/movies/{{ movie.hasFilmID }}"><img src="{{ movie.hasPoster }}"/></a></li>
-          {% endfor %}
-        </ul>
+        {% for person in persons %}
+          <a href="/person/{{ person.hasPersonID }}">{{ person.hasName }}</a>,
+        {% endfor %}
       </div>
 
     </div><!-- /.container -->
