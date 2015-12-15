@@ -10,6 +10,18 @@ class WSQueries:
 		self.g = Graph()
 		self.g.parse(ttl_file, format="n3")
 
+	def getDistinctGenres(self):
+		query = "SELECT DISTINCT ?genre WHERE { ?a :hasGenre ?genre }"
+
+		qres = self.g.query(query)
+
+		l = []
+
+		for row in qres:
+			l.append(str(row[0]).split("#")[1])
+
+		return l
+
 	def getFilmsByGenre(self, genre):
 		namespace="<http://www.semanticmovies.pt/#"+genre+">"
 
@@ -183,20 +195,46 @@ class WSQueries:
 		return l[0]
 
 
-	def searchFilm(self, keyword):
+	def searchFilm(self, keyword,dates,genre):
 		l=[]
-		query = "SELECT ?id ?title ?runtime ?release_date ?rating ?votes ?tagline ?plot ?poster WHERE {?a a :Film. ?a :hasFilmID ?id.  ?a :hasTitle ?title. ?a :hasRuntime ?runtime. ?a :hasReleaseDate ?release_date. ?a :hasRating ?rating. ?a :hasVotes ?votes. ?a :hasTagline ?tagline. ?a :hasPlot ?plot. ?a :hasPoster ?poster. FILTER (regex(?title,'.*"+keyword+".*','i')).}"
+
+		namespace="<http://www.semanticmovies.pt/#"+genre+">"
+		if dates[0] != "" and dates[1] != "":
+			dates[0] = dates[0]+"-01-01"
+			dates[1] = dates[1]+"-12-31"
+			query = "SELECT ?id ?title ?runtime ?release_date ?genre ?rating ?votes ?tagline ?plot ?poster WHERE {?a a :Film. ?a :hasFilmID ?id.  ?a :hasTitle ?title. ?a :hasRuntime ?runtime. ?a :hasReleaseDate ?release_date. ?a :hasRating ?rating. ?a :hasVotes ?votes. ?a :hasTagline ?tagline. ?a :hasPlot ?plot. ?a :hasPoster ?poster. FILTER (regex(?title,'.*"+keyword+".*','i')). FIlTER (?release_date >= '"+dates[0]+"').FIlTER (?release_date <= '"+dates[1]+"')."
+
+		elif dates[0] != "":
+			dates[0] = dates[0]+"-01-01"
+			query = "SELECT ?id ?title ?runtime ?release_date ?rating ?votes ?tagline ?plot ?poster WHERE {?a a :Film. ?a :hasFilmID ?id.  ?a :hasTitle ?title. ?a :hasRuntime ?runtime. ?a :hasReleaseDate ?release_date. ?a :hasRating ?rating. ?a :hasVotes ?votes. ?a :hasTagline ?tagline. ?a :hasPlot ?plot. ?a :hasPoster ?poster. FILTER (regex(?title,'.*"+keyword+".*','i')). FIlTER (?release_date >= '"+dates[0]+"')."
+
+		elif dates[1] != "":
+			dates[1] = dates[1]+"-12-31"
+			query = "SELECT ?id ?title ?runtime ?release_date ?rating ?votes ?tagline ?plot ?poster WHERE {?a a :Film. ?a :hasFilmID ?id.  ?a :hasTitle ?title. ?a :hasRuntime ?runtime. ?a :hasReleaseDate ?release_date. ?a :hasRating ?rating. ?a :hasVotes ?votes. ?a :hasTagline ?tagline. ?a :hasPlot ?plot. ?a :hasPoster ?poster. FILTER (regex(?title,'.*"+keyword+".*','i')). FIlTER (?release_date <= '"+dates[1]+"')."
+
+		else:
+			query = "SELECT ?id ?title ?runtime ?release_date ?rating ?votes ?tagline ?plot ?poster WHERE {?a a :Film. ?a :hasFilmID ?id.  ?a :hasTitle ?title. ?a :hasRuntime ?runtime. ?a :hasReleaseDate ?release_date. ?a :hasRating ?rating. ?a :hasVotes ?votes. ?a :hasTagline ?tagline. ?a :hasPlot ?plot. ?a :hasPoster ?poster. FILTER (regex(?title,'.*"+keyword+".*','i')). "
+
+		if genre != "":
+			query += "?a :hasGenre "+namespace+"."
+
+		query +="}"
+
 		qres=self.g.query(query)
 		for row in qres:
 			l.append({"hasFilmID":str(row[0]),"hasTitle":str(row[1]),"hasRuntime":str(row[2]),"hasReleaseDate":str(row[3]),"hasRating":str(row[4]),"hasVotes":str(row[5]),"hasTagline":str(row[6]),"hasPlot":str(row[7]),"hasPoster":str(row[8])})
 
-
 		return l
 
-
-	def searchPerson(self, keyword):
+	def searchPerson(self, keyword,job):
 		l = []
-		query = "SELECT ?id ?person ?job  WHERE {?a a :Person. ?a :hasName ?person. ?a :hasPersonID ?id. ?a :hasJob ?job. FILTER (regex(?person,'.*"+keyword+".*','i')).}"
+		namespace="<http://www.semanticmovies.pt/#"+job+">"
+
+		if job != "":
+			 query = "SELECT ?id ?person ?job  WHERE {?a a :Person. ?a :hasName ?person. ?a :hasPersonID ?id. ?a :hasJob "+namespace+". FILTER (regex(?person,'.*"+keyword+".*','i')).}"
+		else:
+			query = "SELECT ?id ?person ?job  WHERE {?a a :Person. ?a :hasName ?person. ?a :hasPersonID ?id. ?a :hasJob ?job. FILTER (regex(?person,'.*"+keyword+".*','i')).}"
+
 
 		qres=self.g.query(query)
 
@@ -204,4 +242,13 @@ class WSQueries:
 			l.append({"hasPersonID":str(row[0]),"hasName":str(row[1]),"hasJob":str(row[2])})
 
 
-		return l
+		for i in range(len(l)-1):
+			
+			for j in range(i+1,len(l)):
+				if type(l[i])!=int and type(l[j])!=int:
+					if (l[i]["hasName"]==l[j]["hasName"]):
+						l[i]["hasJob"]=[l[i]["hasJob"],l[j]["hasJob"]]
+						l[j] = -1
+
+		if -1 in l:
+			l.remove(-1)

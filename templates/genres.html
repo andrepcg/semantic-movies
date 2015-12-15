@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include 'header.html' %}
+
+  <body>
+
+    {% include 'navbar.html' %}
+
+    <div class="container">
+
+      <div class="starter-template">
+        <h1>Genres</h1>
+        <ul>
+          {% for genre in genres %}
+            <li><a href="/genres/{{ genre }}">{{ genre }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  </body>
+</html>
