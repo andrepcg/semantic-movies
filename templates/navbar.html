@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-default navbar-static-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -16,6 +16,18 @@
             <li class="{{ 'active' if page == 'person' }}"><a href="/person">People</a></li>
             <li class="{{ 'active' if page == 'genres' }}"><a href="/genres">Genres</a></li>
             <li class="{{ 'active' if page == 'search' }}"><a href="/search">Search</a></li>
+            {% if session['username'] %}
+              <li class="{{ 'active' if page == 'recommendations' }}"><a href="/recommendations">Recommendations</a></li>
+
+            {% endif %}
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            {% if not session['username'] %}
+              <li><a href="/login">Login</a></li>
+            {% else %}
+              <li><a href="#">Hello, {{session['username']}}</a></li>
+            {% endif %}
           </ul>
         </div><!--/.nav-collapse -->
       </div>

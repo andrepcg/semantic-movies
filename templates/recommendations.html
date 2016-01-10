@@ -9,14 +9,9 @@
     <div class="container">
 
       <div class="starter-template">
-        <h1>Search movie</h1>
-        {% if searchParams %}
-        <p><strong>Title:</strong> {{searchParams.title}}</p>
-        <p><strong>Year range:</strong> {{searchParams.fromYear}} - {{searchParams.toYear}} </p>
-        <p><strong>Genre:</strong> {{searchParams.genre}}</p>
-        {% endif %}
+        <h1>Recommended Movies</h1>
         <ul class="movie-list">
-          {% for movie in movies %}
+          {% for movie in session['recommended_movies'] %}
             <li><a href="/movies/{{ movie.hasFilmID }}"><img src="{{ movie.hasPoster }}"/></a></li>
           {% endfor %}
         </ul>

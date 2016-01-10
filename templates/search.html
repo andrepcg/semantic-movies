@@ -8,11 +8,22 @@
 
     <div class="container">
 
+      <div class="row">
+        <h1>Semantic Search</h1>
+        <form class="form-horizontal" action="/semantic_search" method="POST">
+          <div class="col-sm-12">
+            <input name="text" type="text" class="form-control" id="text" placeholder="Todos os filmes do ano 2005">
+          </div>
+        </form>
+      </div>
 
-        <h1>Search</h1>
+      <hr>
+
+      
         <!--<p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>-->
 
       <div class="row">
+        <h1>Search</h1>
           <form class="form-horizontal" action="/search" method="POST">
             <input type="hidden" name="searchOption" value="0">
             <div class="form-group">

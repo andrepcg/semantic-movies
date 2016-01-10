@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include 'header.html' %}
+
+  <body>
+
+    {% include 'navbar.html' %}
+
+    <div class="container">
+      <div class="row">
+        <h1>History</h1>
+      </div>
+
+
+      <div class="row">
+        <h2>Visited movies</h2>
+        <ul>
+          {% for movie_id in session['visited_movies'] %}
+            <li>{{ movie_id }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="row">
+        <h2>Visited Actors</h2>
+        <ul>
+          {% for actor_id in session['visited_actors'] %}
+            <li>{{ actor_id }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="row">
+        <h2>Visited Directors</h2>
+        <ul>
+          {% for director_id in session['visited_directors'] %}
+            <li>{{ director_id }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="row">
+        <h2>Visited Genres</h2>
+        <ul>
+          {% for genre in session['visited_genres'] %}
+            <li>{{ genre }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  </body>
+</html>
