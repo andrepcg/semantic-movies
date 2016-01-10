@@ -310,7 +310,7 @@ class WSQueries:
 			return l[0]
 
 	def searchSemantic(self, frase):
-		reservedWords=["todos","da","do","com","em","que","os","o","as","a","onde","são","com","foi","é","no","participam","participa","participou","por","pelo"]
+		reservedWords=["todos","tem","cujo","de","da","do","com","em","que","os","o","as","a","onde","são","com","foi","é","no","participam","participa","participou","por","pelo"]
 
 		ontology = {"filmes":"","filme":"","classificação":":hasRating","classificacao":":hasRating","genero":":hasGenre","ano":":hasReleaseDate","titulo":":hasTitle","nome":":hasName","atrizes":":hasActor","atriz":":hasActor","ator":":hasActor","atores":":hasActor","realizado":":hasDirector","realizados":":hasDirector","realizador":":hasDirector","dirigido":":hasDirector","dirigidos":":hasDirector","realizadores":":hasDirector","diretor":":hasDirector","diretores":":hasDirector","produzidos":":hasProducer","produzido":":hasProducer","produtor":":hasProducer","produtores":":hasProducer","escrito":":hasWriter","escritor":":hasWriter","escritores":":hasWriter"}
 		string = frase.split()
