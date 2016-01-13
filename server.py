@@ -49,13 +49,9 @@ def movie(imdb_id=None):
 	filme["genres"] = ws.getFilmGenre(imdb_id)
 	filme["related"] = ws.getRelatedFilms(imdb_id)
 
-	merge(session['recommended_movies'], filme['related'])
-	
-	recommended = random.sample(session["recommended_movies"],6)
+	recommended = []
 
-	#session['recommended_movies'] += filme['related']
-
-	if session['username']:
+	if 'username' in session:
 		if imdb_id not in session['visited_movies']:
 			session['visited_movies'].append(imdb_id)
 		
@@ -70,6 +66,9 @@ def movie(imdb_id=None):
 		for director in filme["directors"]:
 			if director['hasPersonID'] not in session['visited_directors']:
 				session['visited_directors'].append(director['hasPersonID'])
+
+		merge(session['recommended_movies'], filme['related'])
+		recommended += random.sample(session["recommended_movies"],6)
 
 	return render_template('movie.html', movie=filme, recommended=recommended, page="movies")
 
@@ -101,7 +100,7 @@ def genres():
 @app.route("/genres/<genre_name>")
 def genre(genre_name=None):
 	movies = ws.getFilmsByGenre(genre_name)
-	if session['username']:
+	if 'username' in session:
 		if genre_name not in session['visited_genres']:
 			session['visited_genres'].append(genre_name)
 	return render_template('genre.html', page="genres", genre=genre_name, movies=movies)
