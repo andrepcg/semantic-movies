@@ -48,12 +48,27 @@
 
         
       </div>
+      <div class="row">
+        <div class="col-md-12">
         <h1>Related movies</h1>
-        <ul class="movie-list">
-          {% for movie in movie.related %}
-            <li><a href="/movies/{{ movie.hasFilmID }}"><img src="{{ movie.hasPoster }}"/></a></li>
-          {% endfor %}
-        </ul>
+          <ul class="movie-list">
+            {% for movie in movie.related %}
+              <li><a href="/movies/{{ movie.hasFilmID }}"><img src="{{ movie.hasPoster }}"/></a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+        <h1>Recommendations</h1>
+          <ul class="movie-list">
+            {% for movie in recommended %}
+              <li><a href="/movies/{{ movie.hasFilmID }}"><img src="{{ movie.hasPoster }}"/></a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
 
     </div><!-- /.container -->
 
