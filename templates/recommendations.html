@@ -11,7 +11,7 @@
       <div class="starter-template">
         <h1>Recommended Movies</h1>
         <ul class="movie-list">
-          {% for movie in session['recommended_movies'] %}
+          {% for movie in movies %}
             <li><a href="/movies/{{ movie.hasFilmID }}"><img src="{{ movie.hasPoster }}"/></a></li>
           {% endfor %}
         </ul>
