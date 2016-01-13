@@ -73,7 +73,7 @@ def movie(imdb_id=None):
 
 @app.route("/recommendations")
 def recommendations():
-	return render_template('recommendations.html', page="recommendations", persons=ws.getAllPersons())
+	return render_template('recommendations.html', page="recommendations")
 
 @app.route("/person")
 def persons(imdb_id=None):
