@@ -50,6 +50,8 @@ def movie(imdb_id=None):
 	filme["related"] = ws.getRelatedFilms(imdb_id)
 
 	merge(session['recommended_movies'], filme['related'])
+	
+	recommended = random.sample(session["recommended_movies"],6)
 
 	#session['recommended_movies'] += filme['related']
 
@@ -69,11 +71,11 @@ def movie(imdb_id=None):
 			if director['hasPersonID'] not in session['visited_directors']:
 				session['visited_directors'].append(director['hasPersonID'])
 
-	return render_template('movie.html', movie=filme, page="movies")
+	return render_template('movie.html', movie=filme, recommended=recommended, page="movies")
 
 @app.route("/recommendations")
 def recommendations():
-	return render_template('recommendations.html', page="recommendations")
+	return render_template('recommendations.html', movies=session["recommended_movies"], page="recommendations")
 
 @app.route("/person")
 def persons(imdb_id=None):
